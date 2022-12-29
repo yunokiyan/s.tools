@@ -1,12 +1,15 @@
-$background-color:#FAFAFF;
-$font-color:#333333;
-$key-color:#169B9F;
-$sub-color:#E48B49;
-$sub2-color:#F6CD51;
-$btn-color:#D85F5A;
-$cta-color:#FDF9F2;
+$background-color:#EBEBEB;
+$font-color:#1D253C;
+$key-color:#19A79D;
+$panel-color:#2D3540;
 
-$width-pc:1200px;
+$color-setlist:#19A79D;
+$color-fav:#FCB226;
+$color-play:#FC5226;
+$color-grey:#D3DCEB;
+
+$width-pc:1240px;
+$max-width-pc:1400px;
 $width-sp:auto;
 $min-width-sp:380px;
 
@@ -38,7 +41,7 @@ common
 =========================================================*/
 * {
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   @include sp{
     font-size: 15px;
@@ -55,7 +58,7 @@ body{
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6rem;
-  font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-family: 'Noto Sans JP',sans-serif;
   overflow: auto;
   color: $font-color;
   letter-spacing: -0.02em;
@@ -122,59 +125,75 @@ ul,li,dl,dt,dd{
   }
 }
 
+.maxwidth{
+  max-width: $max-width-pc;
+  min-width: $width-pc;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+  @include sp{
+    max-width: auto;
+    min-width: $width-sp;
+  }
+}
+
 /* =========================================================
 header
 =========================================================*/
 
 header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  h1{
-    width: 1200px;
-    margin: 0 auto;
-    text-align:left;
-    padding-top: 30px;
-    padding-left: 100px;
-    box-sizing: border-box;
-    display: flex;
-    .header_logo{
-      margin-right: 20px;
-      @include sp{
-        margin-right: 10px;
-      }
+  @extend .maxwidth;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  padding-top: 20px;
+  position: relative;
+  &_title{
+    flex: 1;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    font-weight: 600;
+  }
+  .bar{
+    width: 25px;
+    height: 4px;
+    background-color: $panel-color;
+    position: absolute;
+    display: block;
+  }
+  &_icon{
+      @extend .bar;
+      top: 28px;
+      right: 97px;
+    &:before{
+      @extend .bar;
+      content: "";
+      top: 8px;
+      right: 0px;
     }
-    .header_icon{
-      margin-top: -10px;
-      display: flex;
-      @include sp{
-        margin-top: -5px;
-      }
-      dt{
-        margin-right: 10px;
-        img{
-          @include sp{
-            height: 35px;
-          }
-        }
-      }
-      dd{
-        padding-top: 3px;
-        font-size: 0.9rem;
-        line-height: 1.1rem;
-        @include sp{
-          padding-top: 5px;
-          font-size:0.6rem;
-          line-height: 0.8rem;
-        }
-      }
+    &:after{
+      @extend .bar;
+      content: "";
+      top: 16px;
+      right: 0px;
     }
-    @include sp{
-      width: $width-sp;
-      padding-top: 20px;
-      padding-left: 20px;
+  }
+  &_option{
+    // display: none
+    width: 200px;
+    text-align: right;
+    &-menu{
+      display: none;
+    }
+    &-login{
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      font-weight: 600;
+      color: $key-color;
+      cursor: pointer;
     }
   }
 }
@@ -185,55 +204,8 @@ header{
 footer
 =========================================================*/
 
-.footer{
-  z-index: 1;
-  background:#F4F4F4;
-
-  &_inner{
-    @extend .inner;
-    padding: 60px 0;
-    @include sp{
-      padding: 30px 0;
-    }
-  }
-
-  &_sitemap{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 900px;
-    margin: 0 auto 40px;
-    @include sp{
-      width: $width-sp;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    &:before{
-      content: "|";
-      padding: 0 10px;
-    }
-
-    &--item{
-      margin-bottom: 10px;
-      &:after{
-        content: "|";
-        padding: 0 10px;
-      }
-      a{
-        @include sp{
-          font-size: 0.9rem;
-        }
-      }
-    }
-  }
-
-  &_copyright{
-    display: block;
-    text-align: center;
-    @include sp{
-      font-size: 0.9rem;
-    }
-  }
+footer{
+  @extend .maxwidth;
 }
 
 /* =========================================================
@@ -248,1346 +220,375 @@ main{
   z-index: 1;
 }
 
-.section{ 
-  margin-top: 60px;
-  margin-bottom: 30px;
-  padding:20px 0;
-  @include sp{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-.h2_title{
-  color: $key-color;
-  font-size: 2.4rem;
-  line-height: 3.4rem;
-  font-weight: 800;
-  border-bottom: 2px solid $key-color;
-  padding-bottom: 10px;
-  display: inline-block;
-  margin: 0 auto 30px;
-  text-align: center;
-  @include sp{
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-.caption{
+section{
+  @extend .maxwidth;
   margin-bottom: 40px;
-  font-size: 1.2rem;
-  line-height: 2.2rem;
-  @include sp{
-    font-size: 1rem;
-    line-height: 1.8rem;
-    text-align: left;
-    margin-bottom: 20px;
-    br{
-      display: none;
-    }
-  }
 }
 
-.inner{
-  position: relative;
-  width: $width-pc;
-  margin: 0 auto;
-  text-align: center;
-  padding-left: 80px;
-  padding-right: 80px;
-  box-sizing: border-box;
-  @include sp{
-    width: $width-sp;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.panel{
+  color: #fff;
+  background: $panel-color;
+  border-radius:6px;
+  overflow: hidden;
 }
 
-// fv
-//---------------------------------------------------------
-.fv{
-  background: url(../img/fv_pc_01.jpg) no-repeat right top;
-  background-size: auto 480px;
-  min-width:$width-pc;
-  max-width:1400px;
-  margin: 0 auto;
-  @include sp{
-    background: url(../img/fv_pc_01.jpg) no-repeat right -100px top 30px;
-    background-size: auto 400px;
-    min-width:$width-sp;
-    max-width: auto;
-  }
-  &_inner{
-    @extend .inner;
-    height: 480px;
-    @include sp{
-      height: 430px;
-    }
-  }
-  &_title{
-    position: absolute;
-    top: 100px;
-    left: calc(100 / 1200 * 100%);
-    font-size: 3.4rem;
-    line-height: 4.2rem;
-    text-align: left;
-    font-weight: 800;
-    @include sp{
-      font-size: 3.6rem;
-      line-height: 4.2rem;
-      left: 20px;
-      top: 75px;
-    }
-    &--sub{
-      display: block;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      font-size: 2.5rem;
-      line-height: 3.5rem;
-      width: 700px;
-      @include sp{
-        font-size: 1.2rem;
-        line-height: 1.4rem;
-        width: 230px;
-        padding-bottom: 15px;
-        margin-bottom: 10px;
-      }
-      &--dot{
-        font-size: 2.5rem;
-        line-height: 3.5rem;
-        text-emphasis: filled dot #312e36;
-        @include sp{
-          font-size: 1.2rem;
-          line-height: 2.2rem;
-        }
-      }
-    }
-    &--strong{
-      color: $key-color;
-      font-size: 3.4rem;
-      line-height: 5rem;
-      font-weight: 800;
-      br{
-        display: none;
-      }
-      @include sp{
-        font-size: 3.6rem;
-        line-height: 4.2rem;
-        display: block;
-        br{
-          display: block;
-        }
-      }
-    }
-
-  }
-  &_point{
-    position: absolute;
-    top: 290px;
-    left: calc(100 / 1200 * 100%);
-    @include sp{
-      left: 20px;
-      top: 360px;
-    }
-    img{
-      width: 440px;
-      @include sp{
-        width: 250px;
-      }
-    }
-  }
-  
-  &_online{
-    position: absolute;
-    right: 50px;
-    bottom: -50px;
-    width: 150px;
-    @include sp{
-      width: 80px;
-      bottom: -10px;
-      right: 10px;
-    }
-    &:before{
-      content: "外出不要";
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      display: inline-block;
-      padding: 5px 20px;
-      border-radius: 15px;
-      position: absolute;
-      left: 20px;
-      top: -15px;
-      background-color: #D85F5A;
-      @include sp{
-        left: 7px;
-        top: -22px;
-        font-size: 0.7rem;
-        padding: 3px 12px;
-      }
-    }
-    img{
-      width: 100%
-    }
-  }
-
+h2{
+  font-size: 1rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 
+// search
+// ------------------------------------------------------------
 
-// solution
-//---------------------------------------------------------
-.solution{
-  @extend .section;
-  &_inner{
-    @extend .inner;
+.search{
+  display: flex;
+  justify-content: space-between;
+  filter: drop-shadow(4px 6px 8px #777);
+  &_result{
+    height: 606px;
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: $background-color;
+    // .detail:nth-child(odd){
+    //   background: #fff;
+    //   .detail_title{
+    //     color: $font-color;
+    //   }
+    //   .detail_type-title{
+    //     color: $font-color;
+    //   }
+    // }
   }
-  &_head{
-    &--title{
-      @extend .h2_title;
-      @include sp{
-        border: none;
-        color: #333;
-        padding-left: 160px;
-        background: url(../img/img_solution_01.png) no-repeat top left;
-        background-size: 150px auto;
-        height: 150px;
-        padding-top: 50px;
-        box-sizing: border-box;
-        text-align: left;
-      }
-    }
-    &--caption{
-      @extend .caption;
-    }
-  }
-  &_list{
+}
+
+// main
+.main{
+  width: 100%;
+  margin-right: 50px;
+
+  &_nav{
     display: flex;
     justify-content: left;
-    @include sp{
-      display: block;
-    }
-
-    &--image{
-      width: 400px;
-      margin-right:80px;
-      img{
-        width: 100%;
-      }
-      @include sp{
-        display: none;
-      }
-    }
-
-    &--list{
-      flex: 1; 
-      text-align: left;
-
-      &--item{
-        font-size: 1.4rem;
-        font-weight: 800;
-        background: #F4F4F4;
-        padding: 15px 15px 15px 40px;
-        display: block;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        position: relative;
-        @include sp{
-          font-size: 1.1rem;
-          width: 100%;
-          padding: 10px 10px 10px 50px;
-          margin-bottom: 10px;
-        }
-        &:before{
-          content: "✓";
-          display: inline-block;
-          font-size: 3rem;
-          font-weight: 800;
-          position: absolute;
-          left: -17px;
-          top: 13px;
-          color: $key-color;
-          @include sp{
-            font-size: 2rem;
-            left: 10px;
-          }
-        }
-      }
-    }
-  }
-
-  &_subtitle{
-    font-size: 2.4rem;
-    line-height: 4rem;
-    font-weight: 800;
-    position: relative;
-    padding-top: 180px;
-    @include sp{
-      padding-top:100px;
-      font-size: 1.4rem;
-      line-height: 2rem;
-    }
-    br{
-      display: none;
-      @include sp{
-        display: block;
-      }
-    }
-
-    &--strong{
-      font-size: 2.4rem;
-      line-height: 4rem;
-      font-weight: 800;
-      color: $sub2-color;
-      @include sp{
-        font-size: 1.4rem;
-        line-height: 2rem;
-      }
-    }
-
-    &:before{
-      content: "";
-      border-top: 40px solid #F5F0E1;
-      border-right: 200px solid transparent;
-      border-left: 200px solid transparent;
-      position:absolute;
-      left: 50%;
-      top: 80px;
-      margin-left: -200px;
-      @include sp{
-        border-top: 20px solid #F5F0E1;
-        border-right: 100px solid transparent;
-        border-left: 100px solid transparent;
-        top: 40px;
-        margin-left: -100px;
-      }
-    }
-  }
-
-}
-
-
-// point
-//---------------------------------------------------------
-.point{
-  @extend .section;
-  background-color: $key-color;
-  color: #fff;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  position: relative;
-  @include sp{
-    margin-top: 180px;
-    padding-top: 20px
-  }
-
-  &_inner{
-    @extend .inner;
-    &:before{
-      content: url(../img/img_point_01.png);
-      transform: scale(0.35);
-      position: absolute;
-      left: -140px;
-      top: -205px;
-      display: none;
-      @include sp{
-        display: block;
-        top: -363px;
-        transform: scale(0.28);
-        left: 50%;
-        margin-left: -390px;
-      }
-    }
-  
-    &:after{
-      content: url(../img/img_point_02.png);
-      transform: scale(0.35);
-      position: absolute;
-      right: -160px;
-      top: -194px;
-      @include sp{
-        top: -60px;
-        transform: scale(0.28);
-        left: 50%;
-        margin-left: -390px;
-      }
-    }
-  }
-  &_title{
-    font-size: 2.4rem;
-    line-height: 3.4rem;
-    margin-top: 20px;
-    margin-bottom: 80px;
-    font-weight: 800;
-    z-index: 2;
-    @include sp{
-      font-size: 1.9rem;
-      line-height: 2.6rem;
-      margin-bottom: 40px;
-    }
-    span{
-      display: inline-block;
-      padding: 0 15px;
-      font-size: 2rem;
-      color: $key-color;
-      @include sp{
-        font-size: 1.9rem;
-        line-height: 2.6rem;
-      }
-    }
-    &:before{
-      content: "5つ";
-      width: 70px;
-      height: 70px;
-      background: #fff;
-      border-radius: 50%;
-      position:absolute;
-      left: 585px;
-      top: -8px;
-      color: $key-color;
-      box-sizing: border-box;
-      padding-top: 8px;
-      @include sp{
-        width: 57px;
-        height: 57px;
-        left: 187px;
-        font-size: 1.9rem;
-        line-height: 2.6rem;
-      }
-    }
-    &:after{
-      content: "";
-      border-top: 16px solid #FFF;
-      border-right: 8px solid transparent;
-      border-left: 8px solid transparent;
-      position:absolute;
-      left: 630px;
-      top: 53px;
-      rotate: (-30deg);
-      @include sp{
-        left: 226px;
-        top: 42px;
-      }
-    }
-  }
-  &_list{
-    color: $font-color;
-    text-align: left;
-    counter-reset: number 0;
-    @include sp{
-      background: #fff;
-      border-radius: 10px;
-      padding-top: 200px;
-      padding-bottom: 20px;
-    }
-    &--item{
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px 30px 30px 160px;
-      counter-increment: number 1;
-      margin-bottom: 30px;
-      position: relative;
-      @include sp{
-        background: none;
-        padding: 0px 20px 0 20px;
-        margin-bottom: 15px;
-      }
-      dt{
-        font-size: 1.4rem;
-        line-height: 2.4rem;
-        font-weight: 800;
-        @include sp{
-          font-size: 1.1rem;
-          line-height: 1.6rem;
-          padding-left: 85px;
-          height: 70px;
-          display: table-cell;
-          padding-bottom: 10px;
-          vertical-align: middle;
-        }
-        strong{
-          font-size: 1.8rem;
-          color: $sub-color;
-          border-bottom: 1px solid $sub-color;
-          display: inline-block;
-          @include sp{
-            font-size: 1.3rem;
-            line-height: 2rem;
-          }
-        }
-        &:before{
-          content: "";
-          width: 90px;
-          height: 70px;
-          border-radius: 10px 0 10px 0;
-          background-color: $key-color;
-          position: absolute;
-          left: 30px;
-          top: 50%;
-          margin-top: -35px;
-          z-index: 1;
-          @include sp{
-            width: 70px;
-            height: 60px;
-            left: 20px;
-            top: 39px;
-          }
-        }
-      }
-      dd{
-        @include sp{
-          margin-top: 5px;
-        }
-      }
-      &:before{
-        white-space: pre;
-        content: "POINT";
-        position: absolute;
-        left: 48px;
-        top: calc(50% - 30px);
-        z-index: 2;
+    &-item{
+      text-align: center;
+      padding: 5px 30px;
+      background: $color-grey;
+      margin-right: 10px;
+      border-radius: 6px 6px 0 0;
+      color: #fff;
+      cursor: pointer;
+      &.active{
+        background: $panel-color;
         color: #fff;
-        font-size: 1.2rem;
-        @include sp{
-          font-size: 0.8rem;
-          top: 8px;
-          left: 38px;
-        }
       }
-      &:after{
-        white-space: pre;
-        content: "0" counter(number);
-        position: absolute;
-        left: 55px;
-        top: calc(50% - 1px);
-        z-index: 2;
-        font-size: 2.2rem;
-        color: #fff;
-        @include sp{
-          font-size: 1.6rem;    
-          top: 30px;      
-          left: 42px;
-        }
-      }
-    }
-  }
-
-}
-
-
-// voice
-//---------------------------------------------------------
-.voice{
-  @extend .section;
-  position: relative;
-
-  &_inner{
-    @extend .inner;
-
-    &:before{
-      content: url(../img/img_voice_01.png);
-      transform: scale(0.4);
-      position: absolute;
-      left: 198px;
-      top: -220px;
-      @include sp{    
-        transform: scale(0.3);
-        position: absolute;
-        left: 50%;
-        top: -220px;
-        margin-left: -400px;
-      }
-    }
-  }
-  &_title{
-    @extend .h2_title;
-    margin-top: 150px;
-  }
-  &_caption{
-    @extend .caption;
-  }
-
-  &_cards{
-    // display: flex;
-    // justify-content: space-between;
-
-    &--item{
-      margin-top: 60px;
-      width: 320px;
-      padding: 80px 30px 30px 30px;
-      border: 1px solid #ccc;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      box-sizing: border-box;
-      position: relative;
-      background: #fff;
-      height: auto !important;
-      
-      &--image{
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        margin-left: -50px;
-        overflow: hidden;
-        border-radius: 50px;
-        border: 1px solid #ccc;
-        img{
-          width: 100%;
-        }
-      }
-
-      dt{
-        h3{
-          font-size: 1.3rem;
-          font-weight: 800;
-          line-height: 2.4rem;
-          margin-bottom: 20px;
-        }
-      }
-
-      dd{
-        text-align: left;
-        p{
-          &:last-child{
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-
-}
-
-
-// figure
-//---------------------------------------------------------
-.figure{
-  @extend .section;
-  &_inner{
-    @extend .inner;
-  }
-  &_title{
-    @extend .h2_title;
-  }
-  &_caption{
-    @extend .caption;
+    }    
   }
 
   &_list{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    @include sp{
+    @extend .panel;
+    border-radius: 0 6px 6px 6px;
+
+    &-search{
+
+    } 
+    
+    &-fav{
+
+    }
+
+    &-mysong{
+
+    }
+
+    &-archive{
+
+    }
+  }
+
+  &_panel{
+    display: none;
+    &.active{
       display: block;
     }
 
-    &--item{
-      width: 49%;
-      margin-bottom: 40px;
-      padding: 20px;
-      @include sp{
-        width: auto;
-        padding: 0;
-      }
-
-      h3{
-        font-size: 1.2rem;
-        font-weight: 800;
-        padding: 10px;
-        background: $key-color;
-        text-align: center;
-        color: #fff;
-      }
-      p{
-        font-size: 5.5rem;
-        line-height: 6rem;
-        margin-bottom: 10px;
-        text-align: center;
-        padding-left: 110px;
-        font-weight: 800;
-        @include sp{
-          padding-left: 90px;
-          font-size: 3.6rem;
-        }
-      }
-      &--num{
-        font-size: 5.5rem;
-        line-height: 6rem;
-        font-weight: 800;
-        @include sp{
-          font-size: 3.6rem;
-          padding-right: 10px;
-        }
-      }
-
-      &--outside{
-        display: block;
-        font-size: 2rem;
-        line-height: 2rem;
-        text-align: center;
-        @include sp{
-          display: inline-block;
-        }
-      }
-      &--span{
-        font-size: 1rem;
-        text-align: right;
-        display: block;
-        padding-top: 15px;
-        @include sp{
-          position: absolute;
-          bottom: -10px;
-          right: 30px;
-          font-size: 0.85rem;
-        }
-      }
-
-      &.item_01{ 
-        background: url(../img/icon_figure_01.png) no-repeat left 30px top 90px;
-        background-size: 110px auto;
-        @include sp{
-          background: url(../img/icon_figure_01.png) no-repeat left 10px top 80px;
-          background-size: 75px auto;
-        }
-        p{
-          padding-top: 20px;
-          font-size: 2rem;
-          line-height: 2rem;
-          @include sp{
-            padding-right: 30px;
-          }
-        }
-      }
-      &.item_02{ 
-        background: url(../img/icon_figure_02.png) no-repeat left 30px top 90px; 
-        background-size: 100px auto;
-        @include sp{
-          background: url(../img/icon_figure_02.png) no-repeat left 10px top 80px;
-          background-size: 75px auto;
-        }
-        p{
-          font-size: 5.3rem;
-          padding-top: 20px;
-          @include sp{
-            font-size: 2rem;
-            line-height: 2rem;
-          }
-        }
-      }
-
-      &.item_03{ 
-        background: url(../img/icon_figure_03.png) no-repeat left 30px top 90px; 
-        background-size: 110px auto;
-        @include sp{
-          background: url(../img/icon_figure_03.png) no-repeat left 10px top 70px;
-          background-size: 90px auto;
-        }
-        p,span{
-          font-size: 6.3rem;
-          padding-top: 40px;
-          @include sp{
-            font-size: 4.2rem;
-            line-height: 4rem;
-          }
-        }
-        p{
-          @include sp{
-            font-size: 2rem;
-            line-height: 2rem;
-            padding-right: 30px;
-          }
-        }
-      }
-
-      &.item_04{ 
-        background: url(../img/icon_figure_04.png) no-repeat left 30px top 90px; 
-        background-size: 110px auto;
-        @include sp{
-          background: url(../img/icon_figure_04.png) no-repeat left 10px top 70px;
-          background-size: 80px auto;
-        }
-        p,span{
-          font-size: 6.3rem;
-          padding-top: 40px;
-          @include sp{
-            font-size: 4rem;
-            line-height: 4rem;
-            padding-right: 30px;
-            padding-top: 40px;
-            padding-bottom: 10px
-          }
-        }
-      }
-    }
-  }
-
-}
-
-
-// flow
-//---------------------------------------------------------
-.flow{
-  @extend .section;
-  background:$cta-color;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  &_inner{
-    @extend .inner;
-  }
-  &_title{
-    @extend .h2_title;
-  }
-  &_caption{
-    @extend .caption;
-  }
-
-  &_list{
-    display: flex;
-    justify-content: space-between;
-    counter-reset: number 0;
-    margin-bottom: 40px;
-    @include sp{
-      display: block;
-    }
-
-    &--item{
-      width: 330px;
-      background: #fff;
-      padding: 20px;
-      counter-increment: number 1;
-      @include sp{
-        width: auto;
-        margin-bottom: 20px;
-      }
-
-      &--image{
-        width: 280px;
-        margin: 0 auto;
-        margin-bottom: 40px;
-        @include sp{
-          width: 100px;
-          margin: 0px;
-        }
-        img{
-          width: 100%;
-        }
-      }
-
-      dt{
-        @include sp{
+    &-item{
+      &.form{
+        padding: 40px 40px 0;
+        // border-bottom:1px solid $background-color;
+        .form_item{
           display: flex;
           justify-content: left;
-          align-items: center;
-          h3{
-            flex: 1;
+          margin-bottom: 10px;
+          &-title{
+            width: 120px;
           }
         }
-        h3{
-          font-size: 1.2rem;
-          line-height: 1.6rem;
-          text-align: left;
-          font-weight: 800;
-          margin-bottom: 10px;
-          padding-left: 35px;
-          position: relative;
-          @include sp{
-            padding-left: 15px;
+        .form_keyword{
+          input[type="text"]{
+            background: #fff;
+            color: $font-color;
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+            flex: 1;
           }
-          &::before{
-            content: counter(number) ".";
-            position:absolute;
-            left: 0;
-            top: -3px;
-            font-size: 2rem;
-            color: $key-color;
-            @include sp{
-              color: $font-color;
-              font-size: 1.4rem;
-              line-height: 1.6rem;
-              position: relative;
-              display: inline-block;
-              left: 0;
-              top: 0;
-              padding-right: 5px;
+          input[type="button"]{
+            width: 100px;
+            margin-left: 20px;
+            background-color: $key-color;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            text-align: center;
+          }
+        }
+        .form_type{
+          &-check{
+            margin-right: 20px;
+            label{
+              margin-left: 5px;
             }
           }
         }
       }
-
-      dd{
-        text-align: left;
-        padding-left: 35px;
-        @include sp{
-          padding-left: 0;
-          margin-top: 15px;
+      &.detail{
+        padding: 20px;
+        margin-bottom: 20px;
+        //background-color: $panel-color;
+        background: #fff;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        .detail_title{
+        //border-top: 1px dotted $color-grey;
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: $font-color;
         }
+
+        .detail_type{
+          display: flex;
+          justify-content: left;
+          margin-bottom: 20px;
+          &-item{
+            margin-right: 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+          }
+          &-ref{
+            color: $font-color;
+            background: $color-grey;
+            padding: 2px 10px;
+            white-space: nowrap;
+          }
+          &-type{
+            color: $font-color;
+            background: $color-grey;
+            padding: 2px 10px;
+            white-space: nowrap;
+          }
+          &-title{
+            max-width: 460px;
+            flex: 1;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            color: $font-color;
+          }
+
+        }
+
+        .detail_action{
+          display: flex;
+          justify-content: left;
+          //margin-bottom: 10px;
+          &-item{
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1rem;
+            width: 200px;
+            margin-right: 20px;
+            cursor: pointer;
+            text-align: center;
+            filter: drop-shadow(0px 3px 4px #454545);
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+
+          &-setlist{
+            background: $color-setlist;
+          }
+          &-fav{
+            background: $color-fav;
+          }
+          &-play{
+            background: $color-play;
+          }
+        }
+      }
+      &.footer{
+        padding: 15px 40px 15px;
+        text-align: right;
+        border-top: 1px solid #343f51;
       }
     }
   }
 
-  &_presents{
-    background: #F4F4F4;
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 150px;
-    position: relative;
-    @include sp{
-      margin-bottom: 100px;
-    }
-
-    dt{
-      font-size: 1.6rem;
-      color: $sub-color;
-      font-weight: 600px;
-      display: inline-block;
-      padding: 10px 30px;
-      border-radius: 30px;
-      background: #fff;
-      margin-bottom: 20px;
-      position:relative;
-      width: 400px;
-      @include sp{
-        width: 250px;
-        font-size: 1.2rem;
-      }
-
-      &:before{
-        content: url(../img/icon_flow_01.png);
-        transform: scale(0.3);
-        position: absolute;
-        left: -60px;
-        top: -90px;
-        @include sp{
-          transform: scale(0.2);
-          left: -90px;
-        }
-      }
-
-      &:after{
-        content: url(../img/icon_flow_02.png);
-        transform: scale(0.3);
-        position: absolute;
-        right: -60px;
-        top: -90px;
-        @include sp{
-          transform: scale(0.2);
-          right: -90px;
-        }
-      }
-    }
-
-    dd{
-      font-size: 1.3rem;
-      @include sp{
-        font-size: 1.1rem;
-      }
-    }
-  }
-
-  &_subtitle{
-    text-align: center;
-    font-size: 3.2rem;
-    line-height: 3rem;
-    font-weight: 800;
-    position: relative;
-    margin-bottom: 30px;
-    @include sp{
-      font-size: 1.8rem;
-      line-height: 2.2rem;
-      padding-left: 80px;
-      text-align: left;
-    }
-
-    &--strong{
-      font-size: 3.2rem;
-      line-height: 3rem;
-      font-weight: 800;
-      text-emphasis: filled dot $sub2-color;
-      color: $sub2-color;
-      @include sp{
-        font-size: 1.8rem;
-        line-height: 2.2rem;
-      }
-    }
-
-    &:after{
-      content: url(../img/img_flow_04.png);
-      transform: scale(0.32);
-      position: absolute;
-      left: 10px;
-      top: -368px;
-      @include sp{
-       transform: scale(0.23);
-       left: -140px;
-       top: -375px;
-      }
-    }
-
-    &:before{
-      content: "";
-      border-top: 40px solid #F5F0E1;
-      border-right: 200px solid transparent;
-      border-left: 200px solid transparent;
-      position: absolute;
-      left: 50%;
-      top: -80px;
-      margin-left: -200px;
-      @include sp{
-        border-top: 20px solid #F5F0E1;
-        border-right: 100px solid transparent;
-        border-left: 100px solid transparent;
-        top: -50px;
-        margin-left: -100px;
-      }
-    }
-  }
-  
 }
 
 
-// question
-//---------------------------------------------------------
-.question{
-  @extend .section;
-  &_inner{
-    @extend .inner;
-  }
-  &_title{
-    @extend .h2_title;
-  }
-  &_caption{
-    @extend .caption;
+// setlist
+.setlist{
+  @extend .panel;
+  width: 400px;
+  min-width: 400px;
+  counter-reset: number 0;
+  h2{
+    padding: 20px 20px 0;
   }
 
   &_list{
-    text-align: left;
-    &--item{
-      border: 1px solid #ccc;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      background: #fff;
-      cursor: pointer;
-      display: block;
-      position:relative;
-      @include sp{
-        margin-bottom: 15px;
-        padding: 10px;
-      }
-      &:after{
-        content: "+";
-        text-align: center;
-        color: #fff;
-        font-size: 2rem;
-        font-weight: 800;
-        position: absolute;
-        right: 20px;
-        top: 24px;
-        width: 30px;
-        height: 30px;
-        background: $sub2-color;
-        border-radius: 15px;
-        cursor: pointer;
-        @include sp{
-          width: 24px;
-          height: 24px;
-          right: 10px;
-          font-size: 1.6rem;
-          line-height: 1.2rem;
-          margin-top: -12px;
-        }
-      }
-      &.active{
-        &:after{
-          content: "-";
-        }
-      }
-      dt{
-        font-size: 1.4rem;
-        line-height: 2.4rem;
-        font-weight: 800;
-        @include sp{
-          font-size: 1rem;
-          line-height: 2rem;
-          padding-right: 30px;
-        }
-        &:before{
-          content: "Q.";
-          color: $key-color;
-          margin-right: 10px;
-          @include sp{
-            font-size: 1.1rem;
-          }
-        }
-      }
-
-      dd{
-        display: none;
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-        margin-top: 15px;
-        @include sp{
-          font-size: 1rem;
-          padding-right: 0px;
-
-        }
-        &:before{
-          content: "A.";
-          color: $btn-color;
-          margin-right: 10px;
-          font-size: 1.4rem;
-          line-height: 2.4rem;
-          font-weight: 800;
-          @include sp{
-            font-size: 1rem;
-          }
-        }
-      }
-    }
+    height: 708px;
+    background: $background-color;
+    padding: 15px;
+    overflow-y: scroll;
   }
 
-
-
-}
-
-
-
-// campaign
-//---------------------------------------------------------
-.campaign{
-  @extend .section;
-  &_inner{
-    @extend .inner;
-    background: #efefef;
-    padding-top: 60px;
-    padding-bottom: 10px;
-  }
-  &_title{
-    @extend .h2_title;
-  }
-  &_detail{
-    text-align: left;
-    margin-bottom: 60px;
-    &-title{
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    &-item{
-      li{
-        font-size: 1rem;
-        margin-bottom: 15px;
-        padding-left: 20px;
-        position: relative;
-        &:before{
-          position: absolute;
-          top: 0;
-          left: 0;
-          content: "■";
-          display: inline-block;
-          margin-right: 5px;
-          color: $key-color;
-        }
-      }
-    }
-  }
-}
-
-/* =========================================================
-CTA
-=========================================================*/
-
-.cta{
-  background:$cta-color;
-  margin-top: 30px;
-  min-width: $width-pc;
-
-  @include sp{
-    min-width: $width-sp;
-  }
-  &_inner{
-    @extend .inner;
+  &_item{
+    padding: 10px 10px 10px 30px;
+    display: flex;
+    justify-content: left;
+    align-items:center;
     position: relative;
-    padding: 0px;
-    width: 100%;
-    @include sp{
-      padding: 0 0px;
-    }
-  }
-  &_banner{
-    width: 100%;
-    padding: 0 0 30px 0;
-    background-color: $background-color;
-    text-align: center;
-    img{
-      margin: 0 auto;
-      @include sp{
-        width: 100%;
-      }
-    }
-  }
-
-  &_btn{
-    padding-bottom: 30px;
-    @include sp{
-      padding: 0 20px;
-    }
-    &--title{
-      font-size: 1.6rem;
-      line-height: 2.8rem;
-      margin-bottom: 20px;
-      @include sp{
-        font-size: 1.2rem;
-        line-height: 2rem;
-      }
-      &--strong{
-        font-size: 1.4rem;
-        line-height: 2.2rem;
-        display: block;
-        font-weight: 400;
-        @include sp{
-          font-size: 1.2rem;
-          line-height: 2rem;
-        }
-      }
-      &--span{
-        color: $btn-color;
-        font-size: 2rem;
-        line-height: 2.8rem;
-        @include sp{
-          font-size: 1.2rem;
-          line-height: 2rem;
-        }
-      }
-    }
-
-    &--item{
-      font-size: 1.8rem;
-      line-height: 3rem;
-      padding: 10px 100px;
-      display: inline-block;
-      position: relative;
-      box-sizing: content-box;
-      background: $btn-color;
-      background-image: linear-gradient(172deg, rgba(216, 95, 90, 1) 50%, rgba(203, 61, 67, 1) 51%);
-      border-radius: 56px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: $font-color;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    &:before {
+      counter-increment: number 1;
+      content: counter(number) " ";
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -12.5px;
+      background: $key-color;
+      color: #fff;
+      font-weight: 600;
+      width: 25px;
+      height: 25px;
       text-align: center;
-      color: #ffffff;
-      transition: 0.1s;
-      @include sp{
-        font-size: 1.4rem;
-        line-height: 2rem;
-        padding: 10px;
-        width: 100%;
-        box-sizing: border-box;
+      border-radius: 20px;
+      display: block;
+    }
+    // &:nth-child(odd){
+    //   background: #fff;
+    //   border-top: 1px dotted $panel-color;
+    //   &:before{
+    //     background: $panel-color;
+    //     color: #fff;
+    //   }
+    //   .setlist_item-title{
+    //     color: $font-color;
+    //   }
+    // }
+    &:hover{
+      //background-color: #fff;
+    }
+    &-title{
+      flex: 1;
+      padding: 0 20px;
+      dt{
+        font-size: 0.9rem;
+        line-height: 1.4rem;
       }
+      dd{
+        font-size: 0.9rem;
+        display: none;
+      }
+    }
+    &-play{
+      width: 80px;
+      height: 25px;
+      background: $color-play;
+      color: #fff;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 0.9rem;
+      text-align: center;
+      cursor: pointer;
+      margin: 0;
+    }
+    &-delete{
+      width: 50px;
+      background: $color-grey;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: $font-color;
+      cursor: pointer;
+      margin: 0;
+    }
+  }
+
+  &_select{
+    background: $key-color;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2.2rem;
+  }
+
+}
+
+
+
+// artist
+// ------------------------------------------------------------
+.artist{
+  &_list{
+    &-item{
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 5px 25px;
+      color: $font-color;
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.8rem;
+      cursor: pointer;
+      filter: drop-shadow(0px 1px 3px #ccc);
     }
   }
 }
 
-@keyframes shiny {
-  0% { left: -20%; }
-  10% { left: 120%; }
-  100% { left: 120%; }
-}
-
-.cta_btn--item {
-  text-decoration: none;
-  overflow: hidden;
-}
-
-.cta_btn--item::after {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -20%;
-  width: 40px;
-  height: 100%;
-  transform: scale(2) rotate(20deg);
-  background-image: linear-gradient(100deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, .5) 100%, rgba(255, 255, 255, 0) 0%);
-  
-  /* アニメーション */
-  animation-name: shiny;
-  animation-duration: 4s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
 
 
-/* =========================================================
-スクロールエフェクト
-=========================================================*/
-
-/* fadeUp */
-
-.fadeUp{
-  animation-name:fadeUpAnime;
-  animation-duration:1s;
-  animation-fill-mode:forwards;
-  opacity:0;
+// ranking
+// ------------------------------------------------------------
+.ranking{
+  &_list{
+    &-item{
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 5px 25px;
+      color: $font-color;
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.8rem;
+      cursor: pointer;
+      filter: drop-shadow(0px 1px 3px #ccc);
+    }
   }
-  
-@keyframes fadeUpAnime{
-  from {
-  opacity: 0;
-  transform: translateY(30px);
-  }
-
-  to {
-  opacity: 1;
-  transform: translateY(0);
-  }
-}
-
-/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
-.fadeUpTrigger{
-    opacity: 0;
-}
-
-
-
-/* =========================================================
-スワイプ
-=========================================================*/
-
-.swiper-pagination {
-  bottom: 0px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.swiper-pagination {
-  gap: 24px;
-}
-
-.swiper-horizontal>.swiper-pagination-bullets, 
-.swiper-pagination-bullets.swiper-pagination-horizontal, 
-.swiper-pagination-custom, 
-.swiper-pagination-fraction {
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-}
-
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  width: 16px !important;
-  height: 16px !important;
-  background: $key-color !important;
-  border-radius: 8px;
-}
-
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  background: #cccccc;
-  opacity: 1;
-  margin: 0 !important;
-  border-radius: 4px;
 }
