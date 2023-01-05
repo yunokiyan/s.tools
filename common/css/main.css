@@ -197,6 +197,13 @@ section {
   overflow: hidden;
 }
 
+.result, .main_list-search .search_result, .main_list-fav .fav_result, .main_list-mysong .mysong_result, .main_list-archive .archive_result {
+  height: 606px;
+  overflow-y: scroll;
+  padding: 20px;
+  background-color: #EBEBEB;
+}
+
 h2 {
   font-size: 1rem;
   line-height: 1.8rem;
@@ -210,11 +217,82 @@ h2 {
   filter: drop-shadow(4px 6px 8px #777);
 }
 
-.search_result {
-  height: 606px;
-  overflow-y: scroll;
-  padding: 20px;
-  background-color: #EBEBEB;
+.search_table {
+  width: 100%;
+  color: #1D253C;
+}
+
+.search_table thead tr {
+  background: #D3DCEB;
+}
+
+.search_table thead tr th {
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  padding: 5px 3px;
+  text-align: center;
+  border: 1px solid #1D253C;
+}
+
+.search_table tbody tr {
+  background: #fff;
+}
+
+.search_table tbody tr td {
+  font-size: 0.9rem;
+  line-height: 1.6rem;
+  padding: 5px 3px;
+  border: 1px solid #1D253C;
+  vertical-align: middle;
+}
+
+.search_table-number {
+  width: 6%;
+}
+
+.search_table-title {
+  width: 50%;
+}
+
+.search_table-artist {
+  width: 24%;
+  text-align: center;
+}
+
+.search_table-play {
+  width: 10%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.search_table-play a {
+  background: #FC5226;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+  padding: 3px 20px;
+}
+
+.search_table-add {
+  width: 10%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.search_table-add a {
+  background: #19A79D;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+  padding: 3px 20px;
 }
 
 .main {
@@ -255,7 +333,8 @@ h2 {
 }
 
 .main_panel-item.form {
-  padding: 40px 40px 0;
+  height: 130px;
+  padding: 35px 40px 0;
 }
 
 .main_panel-item.form .form_item {
@@ -293,6 +372,30 @@ h2 {
 
 .main_panel-item.form .form_type-check label {
   margin-left: 5px;
+}
+
+.main_panel-item.form .form_select {
+  margin-top: 15px;
+}
+
+.main_panel-item.form .form_select select {
+  background: #fff;
+  color: #1D253C;
+  padding: 3px 10px;
+  width: 60%;
+  margin-right: 20px;
+}
+
+.main_panel-item.form .form_select button {
+  background: #446973;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.main_panel-item.form .form_select button:last-child {
+  margin-right: 0;
 }
 
 .main_panel-item.detail {

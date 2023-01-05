@@ -29,7 +29,7 @@
   <body>
 
     <header class="header">
-      <h1 class="header_title">S.TOOLS</h1>
+      <h1 class="header_title">うたさぽ/歌枠・カラオケ配信サポーター</h1>
       <span class="header_icon"></span>
       <dl class="header_option">
         <dt class="header_option-menu">
@@ -48,10 +48,10 @@
       <section class="search">
         <div class="main">
           <ul class="main_nav">
-            <li class="main_nav-item active">検索</li>
-            <li class="main_nav-item">お気に入り</li>
-            <li class="main_nav-item">マイソング</li>
-            <li class="main_nav-item">過去のセットリスト</li>
+            <li class="main_nav-item active" data-value="main_list-search">検索</li>
+            <li class="main_nav-item" data-value="main_list-fav">お気に入り</li>
+            <li class="main_nav-item" data-value="main_list-mysong">マイソング</li>
+            <li class="main_nav-item" data-value="main_list-archive">過去のセットリスト</li>
           </ul>
           
           <div class="main_list">
@@ -142,20 +142,180 @@
 
             <!-- お気に入り -->
             <div class="main_list-fav main_panel">
-
-              ここに検索結果が表示されます。
-              キーワードを入力して検索してください。
               
-              お気に入りやマイソングからセットリストへ追加も可能です。
+              <ul class="main_panel-item form">
+                <li class="form_keyword form_item">
+                  <label class="form_item-title">キーワード</label>
+                  <input type="text" placeholder="アーティスト名・曲名を入力してください。">
+                  <input type="button" value="検索">
+                </li>
+                <li class="form_type form_item">
+                  <label class="form_item-title">種別</label>
+                  <p class="form_type-check"><input type="checkbox" id="search_type_01"><label for="search_type_01">邦楽</label></p>
+                  <p class="form_type-check"><input type="checkbox" id="search_type_02"><label for="search_type_02">洋楽</label></p>
+                </li>
+              </ul>
+
+              <!-- 検索結果ここから -->
+              <div class="fav_result">
+                  <table class="search_table">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>曲名</th>
+                        <th>アーティスト名</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <!-- 検索結果ここまで -->
+
+              <div class="main_panel-item footer">
+                検索結果：10件
+              </div>
 
             </div>
 
             <!-- マイソング -->
-            <div class="main_list-mysong main_panel"></div>
+            <div class="main_list-mysong main_panel">
+              
+              <ul class="main_panel-item form">
+                <li class="form_keyword form_item">
+                  <label class="form_item-title">キーワード</label>
+                  <input type="text" placeholder="アーティスト名・曲名を入力してください。">
+                  <input type="button" value="検索">
+                </li>
+                <li class="form_type form_item">
+                  <label class="form_item-title">種別</label>
+                  <p class="form_type-check"><input type="checkbox" id="search_type_01"><label for="search_type_01">邦楽</label></p>
+                  <p class="form_type-check"><input type="checkbox" id="search_type_02"><label for="search_type_02">洋楽</label></p>
+                </li>
+              </ul>
+
+              <!-- 検索結果ここから -->
+              <div class="mysong_result">
+                  <table class="search_table">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>曲名</th>
+                        <th>アーティスト名</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                      <tr>
+                        <td class="search_table-number"></td>
+                        <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
+                        <td class="search_table-artist">アンジェラ・アキ</td>
+                        <td class="search_table-add"><a href="">追加</a></td>
+                        <td class="search_table-play"><a href="">再生</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- 検索結果ここまで -->
+  
+                <div class="main_panel-item footer">
+                  検索結果：10件
+                </div>
+            </div>
 
             <!-- 過去のセットリスト -->
             <div class="main_list-archive main_panel">
+              
+              <ul class="main_panel-item form">
+                <li class="form_select form_item">
+                  <select name="" id="">
+                    <option value="">セットリストの読み込み</option>
+                  </select>
+                  <button value="リスト名の変更">リスト名の変更</button>
+                  <button value="リスト名の変更">リストの削除</button>
+                </li>
+              </ul>
 
+              <!-- 検索結果ここから -->
+              <div class="archive_result">
+                <table class="search_table">
+                  <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>曲名</th>
+                      <th>アーティスト名</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="search_table-number"></td>
+                      <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                      <td class="search_table-artist">アンジェラ・アキ</td>
+                      <td class="search_table-add"><a href="">追加</a></td>
+                      <td class="search_table-play"><a href="">再生</a></td>
+                    </tr>
+                    <tr>
+                      <td class="search_table-number"></td>
+                      <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
+                      <td class="search_table-artist">アンジェラ・アキ</td>
+                      <td class="search_table-add"><a href="">追加</a></td>
+                      <td class="search_table-play"><a href="">再生</a></td>
+                    </tr>
+                    <tr>
+                      <td class="search_table-number"></td>
+                      <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
+                      <td class="search_table-artist">アンジェラ・アキ</td>
+                      <td class="search_table-add"><a href="">追加</a></td>
+                      <td class="search_table-play"><a href="">再生</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <!-- 検索結果ここまで -->
+  
+                <div class="main_panel-item footer">
+                  検索結果：10件
+                </div>
             </div>
 
           </div>
