@@ -1,0 +1,171 @@
+$background-color:#fff;
+$font-color:#1D253C;
+$key-color:#19A79D;
+$panel-color:#2D3540;
+
+$color-setlist:#19A79D;
+$color-fav:#FCB226;
+$color-play:#FC5226;
+$color-grey:#D3DCEB;
+
+$width-pc:1240px;
+$max-width-pc:1400px;
+$width-sp:auto;
+$min-width-sp:380px;
+
+//PC最小幅とSP最大幅を変数に入れる
+$media-pc: 1025px;
+$media-sp: 480px;
+
+//スタイルだけでなくメディアクエリの処理ごと@includeで渡したいので中身に@contentをつけておく
+@mixin pc {
+  @media only screen and (min-width: $media-pc ) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: $media-sp) {
+    @content;
+  }
+}
+
+@mixin tab{
+  @media only screen and (min-width:$media-sp+1) and ( max-width:1024px) {
+    @content;
+  }
+}
+
+/* =========================================================
+common
+=========================================================*/
+* {
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+  @include sp{
+    font-size: 15px;
+  }
+}
+
+body{
+  width:100%;
+  height:100%;
+  padding:0px;
+  background:  $background-color;
+  margin:0px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  font-family: 'Noto Sans JP',sans-serif;
+  overflow: auto;
+  color: $font-color;
+  letter-spacing: -0.02em;
+}
+
+a{
+  cursor: pointer !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+pre{
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+  color: #2A2A2A;
+}
+
+ul,li,dl,dt,dd{
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+.pc{ 
+  display: block;
+  @include sp{
+    display: none;
+  }
+}
+.sp{ 
+  display: none;
+  @include sp{
+    display: block;
+  }
+}
+
+.maxwidth{
+  max-width: $max-width-pc;
+  min-width: $width-pc;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+  @include sp{
+    max-width: auto;
+    min-width: $width-sp;
+  }
+}
+
+/* =========================================================
+header
+=========================================================*/
+
+header{
+}
+
+
+
+/* =========================================================
+footer
+=========================================================*/
+
+footer{
+}
+
+/* =========================================================
+contents
+=========================================================*/
+
+#wrapper{
+  text-align: center;
+}
+
+main{
+  z-index: 1;
+}
+
+section{
+  @extend .maxwidth;
+  margin-bottom: 40px;
+}

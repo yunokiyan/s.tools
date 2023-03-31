@@ -27,500 +27,286 @@
     <script src="common/js/init.js"></script>
   </head>  
   <body>
-
-    <header class="header">
-      <h1 class="header_title">うたさぽ/歌枠・カラオケ配信サポーター</h1>
-      <span class="header_icon"></span>
-      <dl class="header_option">
-        <dt class="header_option-menu">
-          <ul>
-            <li>リスト管理</li>
-            <li>マイソング登録</li>
-            <li>アカウント</li>
-            <li>ログアウト</li>
-          </ul>
-        </dt>
-        <dd class="header_option-login">LOGIN</dd>
-      </dl>
+    <header>
+      <h1>うたサポ</h1>
+      <span>歌枠・カラオケ配信サポートツール</span>
     </header>
 
-    <main>
-      <section class="search">
-        <div class="main">
-          <ul class="main_nav">
-            <li class="main_nav-item active" data-value="main_list-search">検索</li>
-            <li class="main_nav-item" data-value="main_list-fav">お気に入り</li>
-            <li class="main_nav-item" data-value="main_list-mysong">マイソング</li>
-            <li class="main_nav-item" data-value="main_list-archive">過去のセットリスト</li>
+    <div id="wrapper">
+      <!-- ナビゲーション開始 -->
+      <nav>
+        <ul>
+          <li class="nav_home active"></li>
+          <li class="nav_ranking"></li>
+          <li class="nav_mypage"></li>
+          <li class="nav_setting"></li>
+        </ul>
+      </nav>
+
+      <!-- メインコンテンツ開始 -->
+      <main>
+
+        <section class="category">
+          <ul>
+            <li class="active">検索</li>
+            <li>お気に入り</li>
+            <li>マイ・ソング</li>
+            <li>過去のお気に入り</li>
           </ul>
-          
-          <div class="main_list">
+        </section>
 
-            <!-- 検索 -->
-            <div class="main_list-search main_panel active">
-              <ul class="main_panel-item form">
-                <li class="form_keyword form_item">
-                  <label class="form_item-title">キーワード</label>
-                  <input type="text" placeholder="アーティスト名・曲名を入力してください。">
-                  <input type="button" value="検索">
-                </li>
-                <li class="form_type form_item">
-                  <label class="form_item-title">種別</label>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_01"><label for="search_type_01">邦楽</label></p>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_02"><label for="search_type_02">洋楽</label></p>
-                </li>
-              </ul>
-
-              <!-- 検索結果ここから -->
-              <div class="search_result">
-                <!-- detail -->
-                <div class="main_panel-item detail">
-                  <h3 class="detail_title">手紙〜拝啓十五の君へ〜 / アンジェラ・アキ</h3>
-                  <ul class="detail_type">
-                    <li class="detail_type-ref detail_type-item">カラオケ歌っちゃ王</li>
-                    <li class="detail_type-type detail_type-item">邦楽</li>
-                    <li class="detail_type-title detail_type-item" >【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】</li>
-                  </ul>
-                  <ul class="detail_action">
-                    <li class="detail_action-setlist detail_action-item">セットリストへ追加</li>
-                    <li class="detail_action-fav detail_action-item">お気に入り登録</li>
-                    <li class="detail_action-play detail_action-item">このまま歌う</li>
-                  </ul>
-                </div>
-
-                <!-- detail -->
-                <div class="main_panel-item detail">
-                  <h3 class="detail_title">手紙〜拝啓十五の君へ〜 / アンジェラ・アキ</h3>
-                  <ul class="detail_type">
-                    <li class="detail_type-ref detail_type-item">カラオケ歌っちゃ王</li>
-                    <li class="detail_type-type detail_type-item">邦楽</li>
-                    <li class="detail_type-title detail_type-item" >【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】</li>
-                  </ul>
-                  <ul class="detail_action">
-                    <li class="detail_action-setlist detail_action-item">セットリストへ追加</li>
-                    <li class="detail_action-fav detail_action-item">お気に入り登録</li>
-                    <li class="detail_action-play detail_action-item">このまま歌う</li>
-                  </ul>
-                </div>
-                
-                <!-- detail -->
-                <div class="main_panel-item detail">
-                  <h3 class="detail_title">手紙〜拝啓十五の君へ〜 / アンジェラ・アキ</h3>
-                  <ul class="detail_type">
-                    <li class="detail_type-ref detail_type-item">カラオケ歌っちゃ王</li>
-                    <li class="detail_type-type detail_type-item">邦楽</li>
-                    <li class="detail_type-title detail_type-item" >【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】</li>
-                  </ul>
-                  <ul class="detail_action">
-                    <li class="detail_action-setlist detail_action-item">セットリストへ追加</li>
-                    <li class="detail_action-fav detail_action-item">お気に入り登録</li>
-                    <li class="detail_action-play detail_action-item">このまま歌う</li>
-                  </ul>
-                </div>
-
-                <!-- detail -->
-                <div class="main_panel-item detail">
-                  <h3 class="detail_title">手紙〜拝啓十五の君へ〜 / アンジェラ・アキ</h3>
-                  <ul class="detail_type">
-                    <li class="detail_type-ref detail_type-item">カラオケ歌っちゃ王</li>
-                    <li class="detail_type-type detail_type-item">邦楽</li>
-                    <li class="detail_type-title detail_type-item" >【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】</li>
-                  </ul>
-                  <ul class="detail_action">
-                    <li class="detail_action-setlist detail_action-item">セットリストへ追加</li>
-                    <li class="detail_action-fav detail_action-item">お気に入り登録</li>
-                    <li class="detail_action-play detail_action-item">このまま歌う</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- 検索結果ここまで -->
-
-              <div class="main_panel-item footer">
-                検索結果：10件
-              </div>
-            </div>
-
-            <!-- お気に入り -->
-            <div class="main_list-fav main_panel">
-              
-              <ul class="main_panel-item form">
-                <li class="form_keyword form_item">
-                  <label class="form_item-title">キーワード</label>
-                  <input type="text" placeholder="アーティスト名・曲名を入力してください。">
-                  <input type="button" value="検索">
-                </li>
-                <li class="form_type form_item">
-                  <label class="form_item-title">種別</label>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_01"><label for="search_type_01">邦楽</label></p>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_02"><label for="search_type_02">洋楽</label></p>
-                </li>
-              </ul>
-
-              <!-- 検索結果ここから -->
-              <div class="fav_result">
-                  <table class="search_table">
-                    <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>曲名</th>
-                        <th>アーティスト名</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <!-- 検索結果ここまで -->
-
-              <div class="main_panel-item footer">
-                検索結果：10件
-              </div>
-
-            </div>
-
-            <!-- マイソング -->
-            <div class="main_list-mysong main_panel">
-              
-              <ul class="main_panel-item form">
-                <li class="form_keyword form_item">
-                  <label class="form_item-title">キーワード</label>
-                  <input type="text" placeholder="アーティスト名・曲名を入力してください。">
-                  <input type="button" value="検索">
-                </li>
-                <li class="form_type form_item">
-                  <label class="form_item-title">種別</label>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_01"><label for="search_type_01">邦楽</label></p>
-                  <p class="form_type-check"><input type="checkbox" id="search_type_02"><label for="search_type_02">洋楽</label></p>
-                </li>
-              </ul>
-
-              <!-- 検索結果ここから -->
-              <div class="mysong_result">
-                  <table class="search_table">
-                    <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>曲名</th>
-                        <th>アーティスト名</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                      <tr>
-                        <td class="search_table-number"></td>
-                        <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
-                        <td class="search_table-artist">アンジェラ・アキ</td>
-                        <td class="search_table-add"><a href="">追加</a></td>
-                        <td class="search_table-play"><a href="">再生</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- 検索結果ここまで -->
-  
-                <div class="main_panel-item footer">
-                  検索結果：10件
-                </div>
-            </div>
-
-            <!-- 過去のセットリスト -->
-            <div class="main_list-archive main_panel">
-              
-              <ul class="main_panel-item form">
-                <li class="form_select form_item">
-                  <select name="" id="">
-                    <option value="">セットリストの読み込み</option>
-                  </select>
-                  <button value="リスト名の変更">リスト名の変更</button>
-                  <button value="リスト名の変更">リストの削除</button>
-                </li>
-              </ul>
-
-              <!-- 検索結果ここから -->
-              <div class="archive_result">
-                <table class="search_table">
-                  <thead>
-                    <tr>
-                      <th>No.</th>
-                      <th>曲名</th>
-                      <th>アーティスト名</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="search_table-number"></td>
-                      <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                      <td class="search_table-artist">アンジェラ・アキ</td>
-                      <td class="search_table-add"><a href="">追加</a></td>
-                      <td class="search_table-play"><a href="">再生</a></td>
-                    </tr>
-                    <tr>
-                      <td class="search_table-number"></td>
-                      <td class="search_table-title">手紙〜拝啓十五の君へ〜</td>
-                      <td class="search_table-artist">アンジェラ・アキ</td>
-                      <td class="search_table-add"><a href="">追加</a></td>
-                      <td class="search_table-play"><a href="">再生</a></td>
-                    </tr>
-                    <tr>
-                      <td class="search_table-number"></td>
-                      <td class="search_table-title">手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜手紙〜拝啓十五の君へ〜</td>
-                      <td class="search_table-artist">アンジェラ・アキ</td>
-                      <td class="search_table-add"><a href="">追加</a></td>
-                      <td class="search_table-play"><a href="">再生</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-                </div>
-                <!-- 検索結果ここまで -->
-  
-                <div class="main_panel-item footer">
-                  検索結果：10件
-                </div>
-            </div>
-
+        <section class="search">
+          <div>            
+            <dl>
+              <dt>キーワード</dt>
+              <dd><input type="text" placeholder="アーティスト名・曲名を入力してください。"></dd>
+            </dl>
+            <dl>
+              <dt>種別</dt>
+              <dd>
+                <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">邦楽</span></label>            
+              </dd>
+              <dd><label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">洋楽</span></dd>
+            </dl>
           </div>
+          <p class="search_btn">
+            検索する
+          </p>
+        </section>
+
+        <section class="detail">
+          <table>
+            <thead>
+              <tr>                  
+                <th class="fixed_th"></th>
+                <th class="fixed_th th_title">曲名</th>
+                <th class="fixed_th th_artist">アーティスト</th>
+                <th class="fixed_th th_tag">タグ</th>
+                <th class="fixed"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>                
+                <td>
+                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span></label>
+                </td>
+                <td>「ひとりで生きられそう」って それってねえ、褒めているの？</td>
+                <td>Juice=Juice</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li><span class="detail_fav">お気に入り</span></li>
+                      <li><span class="detail_play">このまま歌う</span></li>
+                    </ul>                         
+                    <div>
+                      <span class="detail_add_play">このまま歌う</span>
+                      <span class="detail_add_list">セットリストへ追加</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>                
+                <td>
+                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span></label>
+                </td>
+                <td>センチメンタル・ジャーニー</td>
+                <td>松本伊代</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li><span class="detail_fav">お気に入り</span></li>
+                      <li><span class="detail_play">このまま歌う</span></li>
+                    </ul>                         
+                    <div>
+                      <span class="detail_add_play">このまま歌う</span>
+                      <span class="detail_add_list">セットリストへ追加</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>                
+                <td>
+                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span></label>
+                </td>
+                <td>GLAMOROUS SKY</td>
+                <td>NANA starring MIKA NAKASHIMA</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li><span class="detail_fav">お気に入り</span></li>
+                      <li><span class="detail_play">このまま歌う</span></li>
+                    </ul>                         
+                    <div>
+                      <span class="detail_add_play">このまま歌う</span>
+                      <span class="detail_add_list">セットリストへ追加</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="bulk">
+          <ul>
+            <li class="bulk_fav">まとめてお気に入り登録</li>
+            <li class="bulk_setlist">まとめてセットリストへ登録</li>
+          </ul>
+        </section>
+
+        <section class="ranking_artist">
+          <h2>人気アーティスト</h2>
+          <ul>
+            <li>YOASOBI</li>
+            <li>LiSA</li>
+            <li>hololive IDOL PROJECT</li>
+            <li>ヨルシカ</li>
+            <li>DECO*27</li>
+            <li>米津玄師</li>
+            <li>Ado</li>
+            <li>ポルノグラフィティ</li>
+            <li>初音ミク</li>
+            <li>supercell</li>
+            <li>放課後ティータイム</li>
+            <li>Official髭男dism</li>
+            <li>高橋洋子</li>
+            <li>宇多田ヒカル</li>
+            <li>宝鐘マリン</li>
+          </ul>
+        </section>
+        
+      </main>
+
+      <!-- サイドコンテンツ開始 -->
+      <aside class="panel">
+        <h2>無題のセットリスト</h2>
+        <div class="panel_setlist">
+          <!-- セットリスト -->
+          <dl>
+            <dt>「ひとりで生きられそう」って それってねえ、褒めているの？</dt>
+            <dd>
+              <ul>
+                <li class="panel_artist">Juice=Juice</li>
+                <li class="panel_btn"><span class="panel_add_play">再生</span></li>
+              </ul>
+            </dd>
+          </dl>
+          
+          <dl>
+            <dt>センチメンタル・ジャーニー</dt>
+            <dd>
+              <ul>
+                <li class="panel_artist">松本伊代</li>
+                <li class="panel_btn"><span class="panel_add_play">再生</span></li>
+              </ul>
+            </dd>
+          </dl>
+          
+          <dl>
+            <dt>GLAMOROUS SKY</dt>
+            <dd>
+              <ul>
+                <li class="panel_artist">NANA starring MIKA NAKASHIMA</li>
+                <li class="panel_btn"><span class="panel_add_play">再生</span></li>
+              </ul>
+            </dd>
+          </dl>
         </div>
-
-        <div class="setlist">
-          <h2>セットリスト</h2>
-
-          <div class="setlist_list">
-
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>「ひとりで生きられそう」って それってねえ、褒めているの？</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>「ひとりで生きられそう」って それってねえ、褒めているの？</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-            
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>手紙〜拝啓十五の君へ〜</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-            <!-- detail -->
-            <div class="setlist_item">
-              <dl class="setlist_item-title">
-                <dt>「ひとりで生きられそう」って それってねえ、褒めているの？</dt>
-                <dd>アンジェラ・アキ</dd>
-              </dl>
-              <p class="setlist_item-play">再生</p>
-            </div>
-
-
-          </div>
-          
-          <div class="setlist_select">
-            <select name="" id="">
-              <option value="">セットリストの読み込み</option>
-            </select>
-          </div>
-          
+        <div class="panel_youtube">
+          <iframe width="280" height="200" src="https://www.youtube.com/embed/xy4qw9Cdd3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-    </section>
+      </aside>
 
-    <section class="artist">
-      <h2>人気アーティスト</h2>
-      <ul class="artist_list">
-        <li class="artist_list-item">YOASOBI</li>
-        <li class="artist_list-item">LiSA</li>
-        <li class="artist_list-item">hololive IDOL PROJECT</li>
-        <li class="artist_list-item">ヨルシカ</li>
-        <li class="artist_list-item">DECO*27</li>
-        <li class="artist_list-item">米津玄師</li>
-        <li class="artist_list-item">Ado</li>
-        <li class="artist_list-item">ポルノグラフィティ</li>
-        <li class="artist_list-item">初音ミク</li>
-        <li class="artist_list-item">supercell</li>
-        <li class="artist_list-item">放課後ティータイム</li>
-        <li class="artist_list-item">Official髭男dism</li>
-        <li class="artist_list-item">高橋洋子</li>
-        <li class="artist_list-item">宇多田ヒカル</li>
-        <li class="artist_list-item">宝鐘マリン</li>
-      </ul>
-    </section>
 
-    <section class="ranking">
-      <h2>よく歌われている曲</h2>
-      <ul class="ranking_list">
-        <li class="ranking_list-item">夜に駆ける</li>
-        <li class="ranking_list-item">残酷な天使のテーゼ</li>
-        <li class="ranking_list-item">Ahoy!! 我ら宝鐘海賊団☆</li>
-        <li class="ranking_list-item">紅蓮華</li>
-        <li class="ranking_list-item">創聖のアクエリオン</li>
-        <li class="ranking_list-item">君の知らない物語</li>
-        <li class="ranking_list-item">炎</li>
-        <li class="ranking_list-item">コネクト</li>
-        <li class="ranking_list-item">うっせぇわ</li>
-        <li class="ranking_list-item">怪物</li>
-        <li class="ranking_list-item">KING</li>
-        <li class="ranking_list-item">空色デイズ</li>
-        <li class="ranking_list-item">God knows...</li>
-        <li class="ranking_list-item">secret base ～君がくれたもの～</li>
-        <li class="ranking_list-item">シル・ヴ・プレジデント</li>
-      </ul>
-    </section>
-  
-  </main>
-
-  <footer>
-    </footer>
-
+    </div>
   </body>
 </html>

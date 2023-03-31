@@ -1,0 +1,134 @@
+/* =========================================================
+common
+=========================================================*/
+* {
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@media only screen and (max-width: 480px) {
+  * {
+    font-size: 15px;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  background: #fff;
+  margin: 0px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  font-family: 'Noto Sans JP',sans-serif;
+  overflow: auto;
+  color: #1D253C;
+  letter-spacing: -0.02em;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+pre {
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+  color: #2A2A2A;
+}
+
+ul, li, dl, dt, dd {
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+.pc {
+  display: block;
+}
+
+@media only screen and (max-width: 480px) {
+  .pc {
+    display: none;
+  }
+}
+
+.sp {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .sp {
+    display: block;
+  }
+}
+
+.maxwidth, section {
+  max-width: 1400px;
+  min-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media only screen and (max-width: 480px) {
+  .maxwidth, section {
+    max-width: auto;
+    min-width: auto;
+  }
+}
+
+/* =========================================================
+header
+=========================================================*/
+/* =========================================================
+footer
+=========================================================*/
+/* =========================================================
+contents
+=========================================================*/
+#wrapper {
+  text-align: center;
+}
+
+main {
+  z-index: 1;
+}
+
+section {
+  margin-bottom: 40px;
+}

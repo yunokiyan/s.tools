@@ -1,0 +1,687 @@
+$background-color:#fff;
+$font-color:#1D253C;
+$key-color:#19A79D;
+$panel-color:#2D3540;
+
+$color-setlist:#19A79D;
+$color-fav:#FCB226;
+$color-play:#FC5226;
+$color-grey:#D3DCEB;
+
+$width-pc:1240px;
+$max-width-pc:1400px;
+$width-sp:auto;
+$min-width-sp:380px;
+
+//PC最小幅とSP最大幅を変数に入れる
+$media-pc: 1025px;
+$media-sp: 480px;
+
+//スタイルだけでなくメディアクエリの処理ごと@includeで渡したいので中身に@contentをつけておく
+@mixin pc {
+  @media only screen and (min-width: $media-pc ) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: $media-sp) {
+    @content;
+  }
+}
+
+@mixin tab{
+  @media only screen and (min-width:$media-sp+1) and ( max-width:1024px) {
+    @content;
+  }
+}
+
+/* =========================================================
+common
+=========================================================*/
+* {
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+  @include sp{
+    font-size: 15px;
+  }
+}
+
+body{
+  width:100%;
+  height:100%;
+  padding:0px;
+  background:  $background-color;
+  margin:0px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  font-family: 'Noto Sans JP',sans-serif;
+  overflow: auto;
+  color: $font-color;
+  letter-spacing: -0.02em;
+}
+
+a{
+  cursor: pointer !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+pre{
+  margin-bottom: 1.2em;
+  line-height: 1.6rem;
+  white-space: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+  color: #2A2A2A;
+}
+
+ul,li,dl,dt,dd{
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+.pc{ 
+  display: block;
+  @include sp{
+    display: none;
+  }
+}
+.sp{ 
+  display: none;
+  @include sp{
+    display: block;
+  }
+}
+
+.maxwidth{
+  max-width: $max-width-pc;
+  min-width: $width-pc;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+  @include sp{
+    max-width: auto;
+    min-width: $width-sp;
+  }
+}
+
+/* =========================================================
+header
+=========================================================*/
+
+header{
+  @extend .maxwidth;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  padding-top: 20px;
+  position: relative;
+  &_title{
+    flex: 1;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    font-weight: 600;
+  }
+  .bar{
+    width: 25px;
+    height: 4px;
+    background-color: $panel-color;
+    position: absolute;
+    display: block;
+  }
+  &_icon{
+      @extend .bar;
+      top: 28px;
+      right: 97px;
+    &:before{
+      @extend .bar;
+      content: "";
+      top: 8px;
+      right: 0px;
+    }
+    &:after{
+      @extend .bar;
+      content: "";
+      top: 16px;
+      right: 0px;
+    }
+  }
+  &_option{
+    // display: none
+    width: 200px;
+    text-align: right;
+    &-menu{
+      display: none;
+    }
+    &-login{
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      font-weight: 600;
+      color: $key-color;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+/* =========================================================
+footer
+=========================================================*/
+
+footer{
+  @extend .maxwidth;
+}
+
+/* =========================================================
+contents
+=========================================================*/
+
+#wrapper{
+  text-align: center;
+}
+
+main{
+  z-index: 1;
+}
+
+section{
+  @extend .maxwidth;
+  margin-bottom: 40px;
+}
+
+.panel{
+  color: #fff;
+  background: $panel-color;
+  border-radius:6px;
+  overflow: hidden;
+}
+
+.result{
+  height: 606px;
+  overflow-y: scroll;
+  padding: 20px;
+  background-color: $background-color;
+}
+
+h2{
+  font-size: 1rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+// search
+// ------------------------------------------------------------
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  filter: drop-shadow(4px 6px 8px #777);
+  &_table{
+    width: 100%;
+    color: $font-color;
+    thead{
+      tr{
+        background: $color-grey;
+        th{
+          font-size: 0.9rem;
+          line-height: 1.8rem;
+          padding: 5px 3px;
+          text-align: center;
+          border: 1px solid $font-color;
+        }
+      }
+    }
+    tbody{
+      tr{
+        background: #fff;
+        td{
+          font-size: 0.9rem;
+          line-height: 1.6rem;
+          padding: 5px 3px;
+          border: 1px solid $font-color;
+          vertical-align: middle;
+        }
+      }
+    }
+    &-number{
+      width: 6%;
+
+    }
+    &-title{
+      width: 50%;
+
+    }
+    &-artist{
+      width: 24%;
+      text-align: center;
+    }
+    &-play{
+      width: 10%;
+      text-align: center;
+      white-space: nowrap;
+      a{
+        background: $color-play;
+        color: #fff;
+        border-radius: 5px;
+        margin-right: 5px;
+        font-size: 0.9rem;
+        text-align: center;
+        cursor: pointer;
+        margin: 0;
+        padding: 3px 20px;
+      }
+    }
+    &-add{
+      width: 10%;
+      text-align: center;
+      white-space: nowrap;
+      a{
+        background: $color-setlist;
+        color: #fff;
+        border-radius: 5px;
+        margin-right: 5px;
+        font-size: 0.9rem;
+        text-align: center;
+        cursor: pointer;
+        margin: 0;
+        padding: 3px 20px;
+      }
+    }
+  }
+}
+
+// main
+.main{
+  width: 100%;
+  margin-right: 50px;
+
+  &_nav{
+    display: flex;
+    justify-content: left;
+    &-item{
+      text-align: center;
+      padding: 5px 30px;
+      background: $color-grey;
+      margin-right: 10px;
+      border-radius: 6px 6px 0 0;
+      color: #fff;
+      cursor: pointer;
+      &.active{
+        background: $panel-color;
+        color: #fff;
+      }
+    }    
+  }
+
+  &_list{
+    @extend .panel;
+    border-radius: 0 6px 6px 6px;
+
+    &-search{
+      .search_result{
+        @extend .result;
+      }
+    } 
+    
+    &-fav{
+      .fav_result{
+        @extend .result;
+      }
+    }
+
+    &-mysong{
+      .mysong_result{
+        @extend .result;
+      }
+    }
+
+    &-archive{
+      .archive_result{
+        @extend .result;
+      }
+    }
+  }
+
+  &_panel{
+    display: none;
+    &.active{
+      display: block;
+    }
+
+    &-item{
+      &.form{
+        height: 130px;
+        padding: 35px 40px 0;
+        // border-bottom:1px solid $background-color;
+        .form_item{
+          display: flex;
+          justify-content: left;
+          margin-bottom: 10px;
+          &-title{
+            width: 120px;
+          }
+        }
+        .form_keyword{
+          input[type="text"]{
+            background: #fff;
+            color: $font-color;
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+            flex: 1;
+          }
+          input[type="button"]{
+            width: 100px;
+            margin-left: 20px;
+            background-color: $key-color;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            text-align: center;
+          }
+        }
+        .form_type{
+          &-check{
+            margin-right: 20px;
+            label{
+              margin-left: 5px;
+            }
+          }
+        }
+        .form_select{
+          margin-top: 15px;
+          select{
+            background: #fff;
+            color: $font-color;
+            padding: 3px 10px;
+            width: 60%;
+            margin-right: 20px;
+          }
+          button{
+            background: #446973;
+            color: #fff;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+        }
+      }
+      &.detail{
+        padding: 20px;
+        margin-bottom: 20px;
+        //background-color: $panel-color;
+        background: #fff;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        .detail_title{
+        //border-top: 1px dotted $color-grey;
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: $font-color;
+        }
+
+        .detail_type{
+          display: flex;
+          justify-content: left;
+          margin-bottom: 20px;
+          &-item{
+            margin-right: 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+          }
+          &-ref{
+            color: $font-color;
+            background: $color-grey;
+            padding: 2px 10px;
+            white-space: nowrap;
+          }
+          &-type{
+            color: $font-color;
+            background: $color-grey;
+            padding: 2px 10px;
+            white-space: nowrap;
+          }
+          &-title{
+            max-width: 460px;
+            flex: 1;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            color: $font-color;
+          }
+
+        }
+
+        .detail_action{
+          display: flex;
+          justify-content: left;
+          //margin-bottom: 10px;
+          &-item{
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1rem;
+            width: 200px;
+            margin-right: 20px;
+            cursor: pointer;
+            text-align: center;
+            // filter: drop-shadow(0px 3px 4px #454545);
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+
+          &-setlist{
+            background: $color-setlist;
+          }
+          &-fav{
+            background: $color-fav;
+          }
+          &-play{
+            background: $color-play;
+          }
+        }
+      }
+      &.footer{
+        padding: 15px 40px 15px;
+        text-align: right;
+        border-top: 1px solid #343f51;
+      }
+    }
+  }
+
+}
+
+
+// setlist
+.setlist{
+  @extend .panel;
+  width: 400px;
+  min-width: 400px;
+  counter-reset: number 0;
+  h2{
+    padding: 20px 20px 0;
+  }
+
+  &_list{
+    height: 708px;
+    background: $background-color;
+    padding: 15px;
+    overflow-y: scroll;
+  }
+
+  &_item{
+    padding: 10px 10px 10px 30px;
+    display: flex;
+    justify-content: left;
+    align-items:center;
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: $font-color;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    &:before {
+      counter-increment: number 1;
+      content: counter(number) " ";
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -12.5px;
+      background: $key-color;
+      color: #fff;
+      font-weight: 600;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      border-radius: 20px;
+      display: block;
+    }
+    // &:nth-child(odd){
+    //   background: #fff;
+    //   border-top: 1px dotted $panel-color;
+    //   &:before{
+    //     background: $panel-color;
+    //     color: #fff;
+    //   }
+    //   .setlist_item-title{
+    //     color: $font-color;
+    //   }
+    // }
+    &:hover{
+      //background-color: #fff;
+    }
+    &-title{
+      flex: 1;
+      padding: 0 20px;
+      dt{
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+      }
+      dd{
+        font-size: 0.9rem;
+        display: none;
+      }
+    }
+    &-play{
+      width: 80px;
+      height: 25px;
+      background: $color-play;
+      color: #fff;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 0.9rem;
+      text-align: center;
+      cursor: pointer;
+      margin: 0;
+    }
+    &-delete{
+      width: 50px;
+      background: $color-grey;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: $font-color;
+      cursor: pointer;
+      margin: 0;
+    }
+  }
+
+  &_select{
+    background: $key-color;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2.2rem;
+  }
+
+}
+
+
+
+// artist
+// ------------------------------------------------------------
+.artist{
+  &_list{
+    &-item{
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 5px 25px;
+      color: $font-color;
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.8rem;
+      cursor: pointer;
+      filter: drop-shadow(0px 1px 3px #ccc);
+    }
+  }
+}
+
+
+
+// ranking
+// ------------------------------------------------------------
+.ranking{
+  &_list{
+    &-item{
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 5px 25px;
+      color: $font-color;
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.8rem;
+      cursor: pointer;
+      filter: drop-shadow(0px 1px 3px #ccc);
+    }
+  }
+}
