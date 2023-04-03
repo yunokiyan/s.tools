@@ -49,18 +49,16 @@
 
       <!-- メインコンテンツ開始 -->
       <main>
-
         <section class="category">
           <ul>
-            <li class="active"><a href="index.html">検索</a></li>
+            <li><a href="index.html">検索</a></li>
             <li><a href="index_fav.html">お気に入り</a></li>
-            <li><a href="index_mysong.html">マイ・ソング</a></li>
+            <li class="active"><a href="index_mysong.html">マイ・ソング</a></li>
             <li><a href="index_setlist.html">過去のセットリスト</a></li>
           </ul>
         </section>
 
-        <section class="search">
-          
+        <section class="search">          
           <div>            
             <dl>
               <dt>キーワード</dt>
@@ -80,78 +78,139 @@
         </section>
 
         <h2 class="detail_title">
-          <strong>検索</strong> 
+          <strong>マイ・ソング</strong> 
         </h2>
-        <section class="detail type_search">
-
-          <!-- パネル -->
-          <div class="detail_panel">
-            <h3>「ひとりで生きられそう」って それってねえ、褒めているの？ / Juice=Juice</h3>
-            <h4 >Youtube:【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】</h4>
-            <div>              
-              <ul class="detail_tag">
-                <li><span>カラオケ歌っちゃ王</span></li>
-                <li><span>邦楽</span></li>
-              </ul>
-              <ul class="detail_action">
-                <li class="action_play">このまま歌う</li>
-                <li class="action_fav">お気に入り登録</li>
-                <li class="action_setlist">セットリストへ追加</li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- パネル -->
-          <div class="detail_panel">
-            <h3>センチメンタル・ジャーニー / 松本伊代</h3>
-            <h4 >Youtube:【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】</h4>
-            <div>              
-              <ul class="detail_tag">
-                <li><span>カラオケ歌っちゃ王</span></li>
-                <li><span>邦楽</span></li>
-              </ul>
-              <ul class="detail_action">
-                <li class="action_play">このまま歌う</li>
-                <li class="action_fav">お気に入り登録</li>
-                <li class="action_setlist">セットリストへ追加</li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- パネル -->
-          <div class="detail_panel">
-            <h3>GLAMOROUS SKY / NANA starring MIKA NAKASHIMA</h3>
-            <h4 >Youtube:【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】</h4>
-            <div>              
-              <ul class="detail_tag">
-                <li><span>カラオケ歌っちゃ王</span></li>
-                <li><span>邦楽</span></li>
-              </ul>
-              <ul class="detail_action">
-                <li class="action_play">このまま歌う</li>
-                <li class="action_fav">お気に入り登録</li>
-                <li class="action_setlist">セットリストへ追加</li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- パネル -->
-          <div class="detail_panel">
-            <h3>手紙〜拝啓十五の君へ〜 / アンジェラ・アキ</h3>
-            <h4 >Youtube:【ガイドなし】手紙〜拝啓十五の君へ〜 / アンジェラ・アキ【カラオケ】ガイドなし】</h4>
-            <div>              
-              <ul class="detail_tag">
-                <li><span>カラオケ歌っちゃ王</span></li>
-                <li><span>邦楽</span></li>
-              </ul>
-              <ul class="detail_action">
-                <li class="action_play">このまま歌う</li>
-                <li class="action_fav">お気に入り登録</li>
-                <li class="action_setlist">セットリストへ追加</li>
-              </ul>
-            </div>
-          </div>
-
+        <section class="detail">
+          <table>
+            <thead>
+              <tr>                  
+                <th class="fixed_th th_title">曲名</th>
+                <th class="fixed_th th_artist">アーティスト</th>
+                <th class="fixed_th th_tag">タグ</th>
+                <th class="fixed"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>「ひとりで生きられそう」って それってねえ、褒めているの？</td>
+                <td>Juice=Juice</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li class="play"><span>このまま歌う</span></li>
+                      <li class="fav"><span>お気に入り</span></li>
+                      <li class="setlist"><span>セットリストへ追加</span></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>センチメンタル・ジャーニー</td>
+                <td>松本伊代</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li class="play"><span>このまま歌う</span></li>
+                      <li class="fav"><span>お気に入り</span></li>
+                      <li class="setlist"><span>セットリストへ追加</span></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>GLAMOROUS SKY</td>
+                <td>NANA starring MIKA NAKASHIMA</td>
+                <td>
+                  <ul class="detail_tag">
+                    <li><span>カラオケ歌っちゃ王</span> </li>
+                    <li><span>邦楽</span></li>
+                  </ul>
+                </td>
+                <td class="fixed">
+                  <div class="detail_btn_list">                  
+                    <ul class="detail_btn">
+                      <li class="play"><span>このまま歌う</span></li>
+                      <li class="fav"><span>お気に入り</span></li>
+                      <li class="setlist"><span>セットリストへ追加</span></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fixed"></td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section class="ranking_artist">
@@ -212,10 +271,6 @@
             </dd>
           </dl>
         </div>
-        <ul class="panel_action">
-          <li><a href="#" class="btn_save">保存</a></li>
-          <li><a href="#" class="btn_load">読み込む</a></li>
-        </ul>
         <div class="panel_youtube">
           <iframe width="280" height="200" src="https://www.youtube.com/embed/xy4qw9Cdd3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>

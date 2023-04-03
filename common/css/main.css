@@ -170,9 +170,10 @@ input {
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
+  color: #02A9E1;
 }
 
-.shadow, main .search_btn, main .bulk ul li.bulk_fav, main .bulk ul li.bulk_setlist, main .ranking_artist ul li, aside .panel_setlist dl {
+.shadow, main .search_btn, main .detail.type_search .detail_panel, main .detail.type_search .detail_panel div .detail_action li.action_fav, main .detail.type_search .detail_panel div .detail_action li.action_setlist, main .detail.type_search .detail_panel div .detail_action li.action_play, main table th .detail_btn_list ul.detail_btn li, main table td .detail_btn_list ul.detail_btn li, main .bulk ul li, main .ranking_artist ul li, aside .panel_setlist dl, aside .panel_action li {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -195,7 +196,7 @@ main .category ul {
 
 main .category ul li {
   font-size: 1rem;
-  width: 140px;
+  width: 160px;
   padding: 10px 0;
   border: 1px solid #02A9E1;
   background-color: #fff;
@@ -261,11 +262,150 @@ main .search_btn {
   cursor: pointer;
 }
 
+main .detail_title {
+  background: #F7F7F7;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+}
+
+main .detail_title strong {
+  font-size: 1.2rem;
+  color: #02A9E1;
+  font-weight: 600;
+  flex: 1;
+}
+
+main .detail_title select {
+  width: 300px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: normal;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+main .detail_title p {
+  width: 300px;
+  text-align: right;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+main .detail_title.add_select:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02A9E1;
+  border-left: 2px solid #02A9E1;
+  transform: translateY(-50%) rotate(-135deg);
+  font-size: 20px;
+  pointer-events: none;
+}
+
 main .detail {
   overflow-x: auto;
   padding-bottom: 10px;
   -webkit-overflow-scrolling: touch;
-  max-height: 602px;
+  height: 600px;
+}
+
+main .detail.type_search .detail_panel {
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+
+main .detail.type_search .detail_panel h3 {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+main .detail.type_search .detail_panel h4 {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #333;
+  background: #F7F7F7;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+main .detail.type_search .detail_panel div {
+  display: flex;
+  justify-content: left;
+  align-items: end;
+}
+
+main .detail.type_search .detail_panel div .detail_tag {
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  flex: 1;
+}
+
+main .detail.type_search .detail_panel div .detail_tag li {
+  margin-right: 5px;
+}
+
+main .detail.type_search .detail_panel div .detail_tag li span {
+  font-size: 0.8rem;
+  background: #D3DCEB;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+main .detail.type_search .detail_panel div .detail_tag li:last-child {
+  margin-right: 0;
+}
+
+main .detail.type_search .detail_panel div .detail_action {
+  display: flex;
+  justify-content: right;
+  width: 600px;
+}
+
+main .detail.type_search .detail_panel div .detail_action li {
+  cursor: pointer;
+  padding: 10px 15px 10px 40px;
+  font-size: 1rem;
+  margin-left: 20px;
+  border-radius: 30px;
+}
+
+main .detail.type_search .detail_panel div .detail_action li.action_fav {
+  background: #fff url(../img/icon_fav.png) no-repeat left 12px top 11px;
+  background-size: 20px;
+  border: 2px solid #FCB226;
+  color: #FCB226;
+  font-weight: bold;
+}
+
+main .detail.type_search .detail_panel div .detail_action li.action_setlist {
+  background: #fff url(../img/icon_setlist.png) no-repeat left 12px top 11px;
+  background-size: 20px;
+  border: 2px solid #02A9E1;
+  color: #02A9E1;
+  font-weight: bold;
+}
+
+main .detail.type_search .detail_panel div .detail_action li.action_play {
+  background: #fff url(../img/icon_play.png) no-repeat left 12px top 11px;
+  background-size: 20px;
+  padding-left: 40px;
+  border: 2px solid #de332e;
+  color: #de332e;
+  font-weight: bold;
 }
 
 main table {
@@ -297,11 +437,6 @@ main table th.fixed, main table td.fixed {
   background: none;
   border-left: none;
   border-right: none;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 0;
-  padding-left: 0;
-  width: 300px;
 }
 
 main table th.fixed:before, main table td.fixed:before {
@@ -376,27 +511,54 @@ main table th .detail_btn_list ul, main table td .detail_btn_list ul {
 main table th .detail_btn_list ul.detail_btn, main table td .detail_btn_list ul.detail_btn {
   display: flex;
   justify-content: space-between;
-  display: none;
+  width: 120px;
+}
+
+main table th .detail_btn_list ul.detail_btn li, main table td .detail_btn_list ul.detail_btn li {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
 }
 
 main table th .detail_btn_list ul.detail_btn li span, main table td .detail_btn_list ul.detail_btn li span {
-  margin-right: 10px;
-  padding: 5px 10px 5px 30px;
+  padding: 5px;
   border-radius: 5px;
   text-align: center;
-  color: #fff;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 120px;
+  text-align: center;
+  font-size: 0.8rem;
+  z-index: 1;
+  margin-left: -60px;
+  display: none;
 }
 
-main table th .detail_btn_list ul.detail_btn li .fav, main table td .detail_btn_list ul.detail_btn li .fav {
-  background: #FCB226;
+main table th .detail_btn_list ul.detail_btn li.setlist, main table td .detail_btn_list ul.detail_btn li.setlist {
+  background: #fff url(../img/icon_setlist.png) no-repeat left 5px top 5px;
+  background-size: 20px;
+  border: 2px solid #02A9E1;
 }
 
-main table th .detail_btn_list ul.detail_btn li .play, main table td .detail_btn_list ul.detail_btn li .play {
-  background: #de332e;
+main table th .detail_btn_list ul.detail_btn li.fav, main table td .detail_btn_list ul.detail_btn li.fav {
+  background: #fff url(../img/icon_fav.png) no-repeat left 5px top 5px;
+  background-size: 20px;
+  border: 2px solid #FCB226;
+}
+
+main table th .detail_btn_list ul.detail_btn li.play, main table td .detail_btn_list ul.detail_btn li.play {
+  background: #fff url(../img/icon_play.png) no-repeat left 5px top 5px;
+  background-size: 20px;
+  border: 2px solid #de332e;
 }
 
 main table th .detail_btn_list div, main table td .detail_btn_list div {
   display: flex;
+  display: none;
 }
 
 main table th .detail_btn_list div span, main table td .detail_btn_list div span {
@@ -414,7 +576,7 @@ main table th .detail_btn_list div span, main table td .detail_btn_list div span
 main table th .detail_btn_list div .detail_add_play, main table td .detail_btn_list div .detail_add_play {
   width: 150px;
   color: #fff;
-  background: #de332e url(../img/icon_play.png) no-repeat left 20px top 14px;
+  background: #de332e url(../img/icon_play_white.png) no-repeat left 20px top 14px;
   background-size: 25px auto;
   padding-left: 35px;
 }
@@ -435,20 +597,6 @@ main table th .detail_btn_list div .detail_add_list:before, main table td .detai
   border-right: 2px solid #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-
-main table th:first-child {
-  border: none;
-  background: #fff;
-  z-index: 1;
-}
-
-main table th:first-child:before {
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
-  background: #fff;
-  width: calc(100% + 1px);
-  left: -1px;
 }
 
 main table th.fixed {
@@ -472,22 +620,33 @@ main .bulk ul {
 
 main .bulk ul li {
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 10px 40px;
   font-size: 1rem;
   margin-left: 20px;
   border-radius: 30px;
+  font-weight: bold;
 }
 
 main .bulk ul li.bulk_fav {
   border: 2px solid #FCB226;
   color: #FCB226;
-  font-weight: bold;
 }
 
 main .bulk ul li.bulk_setlist {
   border: 2px solid #02A9E1;
-  color: #02A9E1;
-  font-weight: bold;
+  background: #02A9E1;
+  color: #fff;
+}
+
+main .bulk ul li.bulk_mysong {
+  border: 2px solid #de332e;
+  background: #de332e;
+  color: #fff;
+}
+
+main .bulk ul li.bulk_delete {
+  border: 2px solid #293A41;
+  color: #293A41;
 }
 
 main .ranking_artist {
@@ -515,6 +674,89 @@ main .ranking_artist ul li {
 }
 
 /* =========================================================
+ranking
+=========================================================*/
+.ranking .detail {
+  height: 900px;
+}
+
+.ranking .detail th:first-child, .ranking .detail td:first-child {
+  text-align: center;
+}
+
+/* =========================================================
+mypage
+=========================================================*/
+.mypage .detail th:first-child, .mypage .detail td:first-child {
+  text-align: center;
+}
+
+.mypage .detail th .detail_btn_list .detail_btn, .mypage .detail td .detail_btn_list .detail_btn {
+  justify-content: space-around;
+  width: 260px;
+}
+
+.mypage .detail th .detail_btn_list .detail_btn li, .mypage .detail td .detail_btn_list .detail_btn li {
+  width: auto;
+  height: auto;
+  padding: 5px 20px 5px 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mypage .detail th .detail_btn_list .detail_btn li.play, .mypage .detail td .detail_btn_list .detail_btn li.play {
+  background: #fff url(../img/icon_play.png) no-repeat left 10px top 7px;
+  background-size: 20px;
+  color: #de332e;
+}
+
+.mypage .detail th .detail_btn_list .detail_btn li.delete, .mypage .detail td .detail_btn_list .detail_btn li.delete {
+  background: #EEEEEE url(../img/icon_delete.png) no-repeat left 10px top 6px;
+  background-size: 20px;
+  color: #293A41;
+  border: 2px solid #293A41;
+}
+
+/* =========================================================
+setting
+=========================================================*/
+.setting h2 {
+  margin-bottom: 40px;
+}
+
+.setting dl {
+  display: flex;
+  justify-content: left;
+  border-bottom: 1px dotted #aaa;
+  margin: 0 20px 30px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.setting dl dt {
+  width: 200px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.setting dl dd {
+  flex: 2;
+  font-size: 1rem;
+}
+
+.setting dl dd.setting_edit {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px 15px;
+  width: 50px;
+  text-align: center;
+  flex: 1;
+  color: #02A9E1;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* =========================================================
 nav
 =========================================================*/
 nav {
@@ -522,42 +764,65 @@ nav {
   width: 50px;
   height: calc(100vh - 50px);
   background: #47545A;
+  position: relative;
 }
 
-nav ul li {
+nav ul li a {
   width: 50px;
   height: 50px;
   padding: 0;
   line-height: 0;
+  display: block;
   cursor: pointer;
 }
 
-nav ul li.nav_home {
+nav ul li a.nav_home {
   background: url(../img/icon_nav_home.png) no-repeat left 50% top 50%;
   background-size: 25px;
 }
 
-nav ul li.nav_ranking {
+nav ul li a.nav_ranking {
   background: url(../img/icon_nav_ranking.png) no-repeat left 50% top 50%;
   background-size: 25px;
 }
 
-nav ul li.nav_mypage {
+nav ul li a.nav_mypage {
   background: url(../img/icon_nav_mypage.png) no-repeat left 50% top 50%;
   background-size: 25px;
 }
 
-nav ul li.nav_setting {
+nav ul li a.nav_setting {
   background: url(../img/icon_nav_setting.png) no-repeat left 50% top 50%;
   background-size: 25px;
 }
 
-nav ul li.active {
+nav ul li a.nav_login {
+  background: url(../img/icon_nav_login.png) no-repeat left 50% top 50%;
+  background-size: 25px;
+}
+
+nav ul li a.nav_toggle {
+  background: #293A41 url(../img/icon_nav_toggle_open.png) no-repeat left 50% top 50%;
+  background-size: 20px;
+}
+
+nav ul li a.nav_toggle.open {
+  background: #293A41 url(../img/icon_nav_toggle_close.png) no-repeat left 50% top 50%;
+  background-size: 20px;
+}
+
+nav ul li a.active {
   background-color: #61686C;
 }
 
-nav ul li:hover {
+nav ul li a:hover {
   background-color: #61686C;
+}
+
+nav ul.nav_end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* =========================================================
@@ -569,16 +834,19 @@ aside {
   height: calc(100vh - 50px);
   background: #EEEEEE;
   position: relative;
+  min-height: 1114px;
 }
 
 aside h2 {
   background: #ccc;
   padding: 10px;
+  color: #333;
 }
 
 aside .panel_setlist {
   padding: 15px;
-  height: 800px;
+  min-height: 800px;
+  height: calc(100% - 314px);
   overflow-y: scroll;
 }
 
@@ -627,13 +895,38 @@ aside .panel_setlist dl dd ul li.panel_artist {
 
 aside .panel_setlist dl dd ul li.panel_btn .panel_add_play {
   font-size: 0.9rem;
-  background: #de332e url(../img/icon_play.png) no-repeat left 18px top 6px;
+  background: #de332e url(../img/icon_play_white.png) no-repeat left 18px top 6px;
   background-size: 17px auto;
   color: #fff;
   text-align: center;
   padding: 5px 20px 5px 40px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+aside .panel_action {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  background: #61686C;
+}
+
+aside .panel_action li a {
+  display: block;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100px;
+  border-radius: 5px;
+}
+
+aside .panel_action li a.btn_save {
+  background: #02A9E1;
+  color: #fff;
+}
+
+aside .panel_action li a.btn_load {
+  background: #DDDDDD;
 }
 
 aside .panel_youtube {
@@ -650,6 +943,7 @@ Checkbox
 .detail_checkboxInput {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
