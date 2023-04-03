@@ -56,22 +56,41 @@
         <dl>
           <dt>ユーザー名</dt>
           <dd>天野ゆきゆき</dd>
-          <dd class="setting_edit">変更する</dd>
+          <dd class="setting_edit ev_dialog" data-dialog="setting">変更する</dd>
         </dl>
 
         <dl>
           <dt>メールアドレス</dt>
           <dd>xxxxxxx@xxxx.com</dd>
-          <dd class="setting_edit">変更する</dd>
+          <dd class="setting_edit ev_dialog" data-dialog="setting">変更する</dd>
         </dl>
         
         <dl>
           <dt>パスワード</dt>
           <dd>xxxxxxxxx</dd>
-          <dd class="setting_edit">変更する</dd>
+          <dd class="setting_edit ev_dialog" data-dialog="setting">変更する</dd>
         </dl>
+      </main>      
 
-      </main>
+      <!-- セットリストの保存 -->
+      <section class="dialog">
+        
+        <!-- 登録情報の変更 -->
+        <div class="detail dialog_type_setting">
+          <h2>登録情報の変更</h2>
+          <div class="inner">
+            <dl>
+              <dt>ユーザー名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
     </div>
   </body>
 </html>

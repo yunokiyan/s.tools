@@ -437,6 +437,7 @@ main table th.fixed, main table td.fixed {
   background: none;
   border-left: none;
   border-right: none;
+  width: 140px;
 }
 
 main table th.fixed:before, main table td.fixed:before {
@@ -691,6 +692,10 @@ mypage
   text-align: center;
 }
 
+.mypage .detail th.fixed, .mypage .detail td.fixed {
+  width: 260px;
+}
+
 .mypage .detail th .detail_btn_list .detail_btn, .mypage .detail td .detail_btn_list .detail_btn {
   justify-content: space-around;
   width: 260px;
@@ -935,6 +940,241 @@ aside .panel_youtube {
   bottom: 0;
   padding: 10px;
   background: #000;
+}
+
+/* =========================================================
+dialog
+=========================================================*/
+.dialog {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: none;
+}
+
+.dialog .detail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.dialog .detail h2 {
+  background: #02A9E1;
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+
+.dialog .detail .inner {
+  padding: 30px;
+  text-align: center;
+}
+
+.dialog .detail ul {
+  display: flex;
+  justify-content: center;
+}
+
+.dialog .detail ul li {
+  width: 100px;
+  display: block;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dialog .detail ul li.btn_true {
+  background-color: #02A9E1;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.dialog .detail ul li.btn_false {
+  background: #DDDDDD;
+}
+
+.dialog .detail.dialog_type_save, .dialog .detail.dialog_type_rename {
+  display: none;
+  width: 400px;
+  margin-left: -200px;
+  height: 220px;
+  margin-top: -110px;
+}
+
+.dialog .detail.dialog_type_save dl, .dialog .detail.dialog_type_rename dl {
+  margin-bottom: 30px;
+}
+
+.dialog .detail.dialog_type_save dl dt, .dialog .detail.dialog_type_rename dl dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog .detail.dialog_type_save dl dd input, .dialog .detail.dialog_type_rename dl dd input {
+  width: 100%;
+  text-align: left;
+}
+
+.dialog .detail.dialog_type_setting {
+  display: none;
+  width: 400px;
+  margin-left: -200px;
+  height: 220px;
+  margin-top: -110px;
+}
+
+.dialog .detail.dialog_type_setting dl {
+  margin-bottom: 30px;
+}
+
+.dialog .detail.dialog_type_setting dl dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog .detail.dialog_type_setting dl dd input {
+  width: 100%;
+  text-align: left;
+}
+
+.dialog .detail.dialog_type_load {
+  display: none;
+  width: 400px;
+  margin-left: -200px;
+  height: 200px;
+  margin-top: -100px;
+}
+
+.dialog .detail.dialog_type_load dl {
+  margin-bottom: 30px;
+}
+
+.dialog .detail.dialog_type_load dl dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog .detail.dialog_type_load dl dd {
+  position: relative;
+}
+
+.dialog .detail.dialog_type_load dl dd:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02A9E1;
+  border-left: 2px solid #02A9E1;
+  transform: translateY(-50%) rotate(-135deg);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.dialog .detail.dialog_type_load dl dd select {
+  width: 100%;
+  font-size: 1rem;
+  color: #333;
+  font-weight: normal;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.dialog .detail.dialog_type_delete {
+  display: none;
+  width: 400px;
+  margin-left: -200px;
+  height: 220px;
+  margin-top: -110px;
+}
+
+.dialog .detail.dialog_type_delete dl {
+  margin-bottom: 30px;
+}
+
+.dialog .detail.dialog_type_delete ul li.btn_true {
+  background-color: #47545A;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.dialog .detail.dialog_type_mysong {
+  display: none;
+  width: 600px;
+  margin-left: -300px;
+  height: 530px;
+  margin-top: -265px;
+}
+
+.dialog .detail.dialog_type_mysong p {
+  margin-bottom: 30px;
+}
+
+.dialog .detail.dialog_type_mysong p strong {
+  font-weight: bold;
+  color: #02A9E1;
+}
+
+.dialog .detail.dialog_type_mysong dl {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dotted #aaa;
+}
+
+.dialog .detail.dialog_type_mysong dl dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 130px;
+  text-align: left;
+}
+
+.dialog .detail.dialog_type_mysong dl dd {
+  flex: 1;
+}
+
+.dialog .detail.dialog_type_mysong dl dd input {
+  width: 100%;
+  text-align: left;
+}
+
+.dialog .detail.dialog_type_mysong dl dd.dialog_radio {
+  display: flex;
+  justify-content: left;
+}
+
+.dialog .detail.dialog_type_mysong dl dd.dialog_radio label {
+  width: 60px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.dialog .detail.dialog_type_mysong dl dd.dialog_radio label input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.dialog .detail.dialog_type_mysong ul li.btn_true {
+  background-color: #de332e;
+  color: #fff;
+  margin-right: 20px;
 }
 
 /* =========================================================

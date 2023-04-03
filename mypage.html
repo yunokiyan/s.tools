@@ -1,272 +1,326 @@
 <!DOCTYPE html>
 <html lang="jp">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>s.tool</title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content="" />
-    <meta name="robots" content="noindex" />
-
-    <meta property="og:title" content="s.tool" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="common/img/meta_card.png" />
-    <meta property="og:locale" content="ja_JP" />
-    <meta property="og:site_name" content="s.tool" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@yukiyuki_amano" />
-    <link rel="canonical" href="">
-
-    <link rel="stylesheet" href="common/css/base.css" />
-    <link rel="stylesheet" href="common/css/main.css" />
-    <link rel="icon" href="favicon.ico">
-
-    <script src="common/js/init.js"></script>
-  </head>  
-  <body>
-    <header>
-      <h1>うたサポ</h1>
-      <span>歌枠・カラオケ配信サポートツール</span>
-    </header>
-
-    <div id="wrapper">
-      <!-- ナビゲーション開始 -->
-      <nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>s.tool</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="s.tool" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="common/img/meta_card.png" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="s.tool" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yukiyuki_amano" />
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="common/css/base.css" />
+  <link rel="stylesheet" href="common/css/main.css" />
+  <link rel="icon" href="favicon.ico">
+  <script src="common/js/init.js"></script>
+</head>
+<body>
+  <header>
+    <h1>うたサポ</h1> <span>歌枠・カラオケ配信サポートツール</span> </header>
+  <div id="wrapper">
+    <!-- ナビゲーション開始 -->
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav_home"></a></li>
+        <li><a href="ranking.html" class="nav_ranking"></a></li>
+        <li><a href="mypage.html" class="nav_mypage active"></a></li>
+        <li><a href="setting.html" class="nav_setting"></a></li>
+      </ul>
+      <ul class="nav_end">
+        <li><a href="#" class="nav_login"></a></li>
+        <li><a href="#" class="nav_toggle"></a></li>
+      </ul>
+    </nav>
+    <!-- メインコンテンツ開始 -->
+    <main class="mypage">
+      <section class="category">
         <ul>
-          <li><a href="index.html" class="nav_home"></a></li>
-          <li><a href="ranking.html" class="nav_ranking"></a></li>
-          <li><a href="mypage.html" class="nav_mypage active"></a></li>
-          <li><a href="setting.html" class="nav_setting"></a></li>
+          <li class="active"><a href="mypage.html">お気に入り管理</a></li>
+          <li><a href="mypage_setlist.html">セットリスト管理</a></li>
+          <li><a href="mypage_song.html">マイ・ソング管理</a></li>
         </ul>
-        <ul class="nav_end">
-          <li><a href="#" class="nav_login"></a></li>
-          <li><a href="#" class="nav_toggle"></a></li>
+      </section>
+      <section class="search">
+        <div>
+          <dl> <dt>キーワード</dt>
+            <dd><input type="text" placeholder="アーティスト名・曲名を入力してください。"></dd>
+          </dl>
+          <dl> <dt>種別</dt>
+            <dd> <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">邦楽</span>
+                </label> </dd>
+            <dd> <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">洋楽</span>
+                </label> </dd>
+          </dl>
+        </div>
+        <p class="search_btn"> 検索する </p>
+      </section>
+      <h2 class="detail_title"> <strong>お気に入り管理</strong> </h2>
+      <section class="detail ">
+        <table>
+          <thead>
+            <tr>
+              <th class="fixed_th th_title"></th>
+              <th class="fixed_th th_title">曲名</th>
+              <th class="fixed_th th_artist">アーティスト</th>
+              <th class="fixed_th th_tag">タグ</th>
+              <th class="fixed_th th_tag">URL</th>
+              <th class="fixed"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
+                  </label> </td>
+              <td>「ひとりで生きられそう」って それってねえ、褒めているの？</td>
+              <td>Juice=Juice</td>
+              <td>
+                <ul class="detail_tag">
+                  <li><span>カラオケ歌っちゃ王</span> </li>
+                  <li><span>邦楽</span></li>
+                </ul>
+              </td>
+              <td> https://www.youtube.com/watch?v=pF_2tI83A3o </td>
+              <td class="fixed">
+                <div class="detail_btn_list">
+                  <ul class="detail_btn">
+                    <li class="play">Youtube</li>
+                    <li class="delete ev_dialog" data-dialog="delete">削除する</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td> <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
+                  </label> </td>
+              <td>センチメンタル・ジャーニー</td>
+              <td>松本伊代</td>
+              <td>
+                <ul class="detail_tag">
+                  <li><span>カラオケ歌っちゃ王</span> </li>
+                  <li><span>邦楽</span></li>
+                </ul>
+              </td>
+              <td> https://www.youtube.com/watch?v=pF_2tI83A3o </td>
+              <td class="fixed">
+                <div class="detail_btn_list">
+                  <ul class="detail_btn">
+                    <li class="play">Youtube</li>
+                    <li class="delete ev_dialog" data-dialog="delete">削除する</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td> <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
+                  </label> </td>
+              <td>GLAMOROUS SKY</td>
+              <td>NANA starring MIKA NAKASHIMA</td>
+              <td>
+                <ul class="detail_tag">
+                  <li><span>カラオケ歌っちゃ王</span> </li>
+                  <li><span>邦楽</span></li>
+                </ul>
+              </td>
+              <td> https://www.youtube.com/watch?v=pF_2tI83A3o </td>
+              <td class="fixed">
+                <div class="detail_btn_list">
+                  <ul class="detail_btn">
+                    <li class="play">Youtube</li>
+                    <li class="delete ev_dialog" data-dialog="delete">削除する</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="fixed"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="bulk">
+        <ul>
+          <li class="bulk_delete ev_dialog" data-dialog="delete">まとめて削除する</li>
         </ul>
-      </nav>
-
-      <!-- メインコンテンツ開始 -->
-      <main class="mypage">
-
-        <section class="category">
-          <ul>
-            <li class="active"><a href="mypage.html">お気に入り管理</a></li>
-            <li><a href="mypage_setlist.html">セットリスト管理</a></li>
-            <li><a href="mypage_song.html">マイ・ソング管理</a></li>
-          </ul>
-        </section>
-
-        <section class="search">
-          
-          <div>            
-            <dl>
-              <dt>キーワード</dt>
-              <dd><input type="text" placeholder="アーティスト名・曲名を入力してください。"></dd>
+      </section>
+      <!-- セットリストの保存 -->
+      <section class="dialog">
+        <div class="detail dialog_type_save">
+          <h2>セットリストの保存</h2>
+          <div class="inner">
+            <dl> <dt>セットリスト名</dt>
+              <dd><input type="text"></dd>
             </dl>
-            <dl>
-              <dt>種別</dt>
-              <dd>
-                <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">邦楽</span>
-                </label>
-              </dd>
-              <dd>
-                <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">洋楽</span>
-                </label>
-                </dd>
-            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
           </div>
-          <p class="search_btn">
-            検索する
-          </p>
-        </section>
-
-        <h2 class="detail_title">
-          <strong>お気に入り管理</strong> 
-        </h2>
-        <section class="detail ">
-
-          <table>
-            <thead>
-              <tr>                  
-                <th class="fixed_th th_title"></th>
-                <th class="fixed_th th_title">曲名</th>
-                <th class="fixed_th th_artist">アーティスト</th>
-                <th class="fixed_th th_tag">タグ</th>
-                <th class="fixed_th th_tag">URL</th>
-                <th class="fixed"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
-                  </label>
-                </td>
-                <td>「ひとりで生きられそう」って それってねえ、褒めているの？</td>
-                <td>Juice=Juice</td>
-                <td>
-                  <ul class="detail_tag">
-                    <li><span>カラオケ歌っちゃ王</span> </li>
-                    <li><span>邦楽</span></li>
-                  </ul>
-                </td>
-                <td>
-                  https://www.youtube.com/watch?v=pF_2tI83A3o
-                </td>
-                <td class="fixed">
-                  <div class="detail_btn_list">                  
-                    <ul class="detail_btn">
-                      <li class="play">Youtube</li>
-                      <li class="delete">削除する</li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
-                  </label>
-                </td>
-                <td>センチメンタル・ジャーニー</td>
-                <td>松本伊代</td>
-                <td>
-                  <ul class="detail_tag">
-                    <li><span>カラオケ歌っちゃ王</span> </li>
-                    <li><span>邦楽</span></li>
-                  </ul>
-                </td>
-                <td>
-                  https://www.youtube.com/watch?v=pF_2tI83A3o
-                </td>
-                <td class="fixed">
-                  <div class="detail_btn_list">                  
-                    <ul class="detail_btn">
-                      <li class="play">Youtube</li>
-                      <li class="delete">削除する</li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label class="detail_checkboxInput"><input class="detail_checkboxInput-Input" type="checkbox"><span class="detail_checkboxInput-DummyInput"></span><span class="detail_checkboxInput-LabelText">選択</span>
-                  </label>
-                </td>
-                <td>GLAMOROUS SKY</td>
-                <td>NANA starring MIKA NAKASHIMA</td>
-                <td>
-                  <ul class="detail_tag">
-                    <li><span>カラオケ歌っちゃ王</span> </li>
-                    <li><span>邦楽</span></li>
-                  </ul>
-                </td>
-                <td>
-                  https://www.youtube.com/watch?v=pF_2tI83A3o
-                </td>
-                <td class="fixed">
-                  <div class="detail_btn_list">                  
-                    <ul class="detail_btn">
-                      <li class="play">Youtube</li>
-                      <li class="delete">削除する</li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="fixed"></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section class="bulk">
-          <ul>
-            <li class="bulk_delete">まとめて削除する</li>
-          </ul>
-        </section>
-        
-      </main>
-
-    </div>
-  </body>
+        </div>
+        <!-- 登録済みのセットリストの読み込み -->
+        <div class="detail dialog_type_load">
+          <h2>登録済みのセットリストの読み込み</h2>
+          <div class="inner">
+            <dl>
+              <dd> <select name="" id="">
+                  <option value="無題のセットリスト">無題のセットリスト</option>
+                </select> </dd>
+            </dl>
+            <ul>
+              <li class="btn_true">読み込み</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        <!-- リストから削除 -->
+        <div class="detail dialog_type_delete">
+          <h2>リストから削除</h2>
+          <div class="inner">
+            <dl>
+              <dd> 選択した曲をリストから<br>削除しますがよろしいですか？ </dd>
+            </dl>
+            <ul>
+              <li class="btn_true">実行</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        <!-- セットリスト名の変更 -->
+        <div class="detail dialog_type_rename">
+          <h2>セットリスト名の変更</h2>
+          <div class="inner">
+            <dl> <dt>セットリスト名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        <!-- マイ・ソングの新規登録 -->
+        <div class="detail dialog_type_mysong">
+          <h2>マイ・ソングの新規登録</h2>
+          <div class="inner">
+            <p>ご自身のYoutubeに保存されている楽曲を登録することができます。<br>登録することでホーム画面の<strong>「マイ・ソング」</strong>から検索が可能になります。<br>※非公開状態でも登録可能です。また第三者から閲覧されることはありません。</p>
+            <dl> <dt>タイトル</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <dl> <dt>アーティスト名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <dl> <dt>タグ</dt>
+              <dd class="dialog_radio"> <label><input type="radio" name="tag"><span>邦楽</span></label> <label><input type="radio" name="tag"><span>洋楽</span></label> </dd>
+            </dl>
+            <dl> <dt>YouTube ID</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">登録</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 登録情報の変更 -->
+        <div class="detail dialog_type_setting">
+          <h2>登録情報の変更</h2>
+          <div class="inner">
+            <dl> <dt>ユーザー名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
 </html>

@@ -2,7 +2,11 @@
 // 変数定義
 // ========================================
 
-const API_PATH = "";
+const SEARCH_API_PATH = "";
+const FAV_API_PATH = "";
+const SETLIST_API_PATH = "";
+const MYSONG_API_PATH = "";
+
 const VIDEO_URL = "https://www.youtube.com/embed/";
 const UA = getUA();
 
@@ -24,27 +28,44 @@ const Stools = function() {
 // ========================================
 
 Stools.prototype = {
-  init(){
-    //this.run();
+  init: function(){
+    this.run();
     const _this = this;
-    const _tab = document.querySelectorAll(".main_nav-item");
-    const _panel = document.querySelectorAll(".main_panel");
+    // const _tab = document.querySelectorAll(".main_nav-item");
+    // const _panel = document.querySelectorAll(".main_panel");
 
-    _tab.forEach(function (button) {
-      button.addEventListener('click',(e) => {
-        _this.tabHandler(_tab,_panel,e);
-      });
-    });
-
+    // _tab.forEach(function (button) {
+    //   button.addEventListener('click',(e) => {
+    //     _this.tabHandler(_tab,_panel,e);
+    //   });
+    // });
   },
 
-  run(){
-    this.getApi(API_PATH).then((json) => {
-      var lists = [];
-      json.setlist.map((obj) => {
-        lists.push(obj.acf);
+  run: function(){
+    const _target = document.querySelectorAll(".ev_dialog");
+    const _dialog = document.querySelector(".dialog");
+    const _dialog_type = document.querySelectorAll('[class^="detail dialog_type"]');
+
+    // _dialog.addEventListener('click',(e) => {
+    //   _dialog.style.display = "none";
+    //   _dialog_type.forEach(function (t) {
+    //     t.style.display = "none";
+    //   });
+    // });
+
+    _target.forEach(function (button) {
+      button.addEventListener('click',(e) => {
+        var type_name = e.target.dataset.dialog;
+        _dialog_type.forEach(function (t) {
+          t.style.display = "none";
+        });
+        if(type_name == "cancel"){
+          _dialog.style.display = "none";
+        }else{
+          _dialog.style.display = "block";
+          document.querySelector(".dialog_type_"+type_name).style.display = "block";
+        }
       });
-      this.create_setlist(lists);
     });
   },
 
@@ -61,15 +82,19 @@ Stools.prototype = {
     })
   },
 
-  tabHandler:function(_tab,_panel,e){
-    Array.from(_tab).map((item) => {item.classList.remove("active");})
-    Array.from(_panel).map((item) => {item.classList.remove("active");})
+  get_search:function(){
+    this.getApi(API_PATH).then((json) => {
+      var lists = [];
+      json.setlist.map((obj) => {
+        lists.push(obj.acf);
+      });
+      this.set_search(lists);
+    });
+  },
 
-    const _t = e.target;
-    _t.classList.add("active");
-    document.querySelector("."+_t.dataset.value).classList.add("active");
+  set_search:function(){
+
   }
-
 }
 
 

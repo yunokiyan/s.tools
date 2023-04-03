@@ -213,15 +213,126 @@
           </dl>
         </div>
         <ul class="panel_action">
-          <li><a href="#" class="btn_save">保存</a></li>
-          <li><a href="#" class="btn_load">読み込む</a></li>
+          <li><a href="#" class="btn_save ev_dialog" data-dialog="save">保存</a></li>
+          <li><a href="#" class="btn_load ev_dialog" data-dialog="load">読み込む</a></li>
         </ul>
         <div class="panel_youtube">
           <iframe width="280" height="200" src="https://www.youtube.com/embed/xy4qw9Cdd3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </aside>
 
+      <!-- セットリストの保存 -->
+      <section class="dialog">
+        <div class="detail dialog_type_save">
+          <h2>セットリストの保存</h2>
+          <div class="inner">
+            <dl>
+              <dt>セットリスト名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- 登録済みのセットリストの読み込み -->
+        <div class="detail dialog_type_load">
+          <h2>登録済みのセットリストの読み込み</h2>
+          <div class="inner">
+            <dl>
+              <dd>
+                <select name="" id="">
+                  <option value="無題のセットリスト">無題のセットリスト</option>
+                </select>
+              </dd>
+            </dl>
+            <ul>
+              <li class="btn_true">読み込み</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- リストから削除 -->
+        <div class="detail dialog_type_delete">
+          <h2>リストから削除</h2>
+          <div class="inner">
+            <dl>
+              <dd>
+                選択した曲をリストから<br>削除しますがよろしいですか？
+              </dd>
+            </dl>
+            <ul>
+              <li class="btn_true">実行</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
 
+        <!-- セットリスト名の変更 -->
+        <div class="detail dialog_type_rename">
+          <h2>セットリスト名の変更</h2>
+          <div class="inner">
+            <dl>
+              <dt>セットリスト名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- マイ・ソングの新規登録 -->
+        <div class="detail dialog_type_mysong">
+          <h2>マイ・ソングの新規登録</h2>
+          <div class="inner">
+            <p>ご自身のYoutubeに保存されている楽曲を登録することができます。<br>登録することでホーム画面の<strong>「マイ・ソング」</strong>から検索が可能になります。<br>※非公開状態でも登録可能です。また第三者から閲覧されることはありません。</p>
+            <dl>
+              <dt>タイトル</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <dl>
+              <dt>アーティスト名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <dl>
+              <dt>タグ</dt>
+              <dd class="dialog_radio">
+                <label><input type="radio" name="tag"><span>邦楽</span></label>
+                <label><input type="radio" name="tag"><span>洋楽</span></label>
+              </dd>
+            </dl>
+            <dl>
+              <dt>YouTube ID</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">登録</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- 登録情報の変更 -->
+        <div class="detail dialog_type_setting">
+          <h2>登録情報の変更</h2>
+          <div class="inner">
+            <dl>
+              <dt>ユーザー名</dt>
+              <dd><input type="text"></dd>
+            </dl>
+            <ul>
+              <li class="btn_true">保存</li>
+              <li class="btn_false ev_dialog" data-dialog="cancel">キャンセル</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
     </div>
   </body>
 </html>

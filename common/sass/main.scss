@@ -479,6 +479,7 @@ main{
         background: none;
         border-left: none;
         border-right: none;
+        width: 140px;
         &:before{
           content: "";
           position: absolute;
@@ -749,6 +750,9 @@ mypage
       &:first-child(){
         text-align: center;
       }
+      &.fixed{
+        width: 260px;
+      }
     .detail_btn_list{
       .detail_btn{
         justify-content: space-around;
@@ -986,6 +990,220 @@ aside{
     background: #000;
   }
 }
+
+
+/* =========================================================
+dialog
+=========================================================*/
+
+@mixin dialog_size($dw,$dh){
+  width: $dw;
+  margin-left: ($dw / 2 * -1);
+
+  height: $dh;
+  margin-top: ($dh / 2 * -1);
+}
+
+.dialog{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: none;
+
+  .detail{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    border-radius: 5px;
+    h2{
+      background: $color-blue;
+      width: 100%;
+      padding: 7px;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px 5px 0 0;
+    }
+    .inner{
+      padding: 30px;
+      text-align: center;
+    }
+    ul{
+      display: flex;
+      justify-content: center;
+      li{
+        width: 100px;
+        display: block;
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        cursor: pointer;
+        &.btn_true{
+          background-color: $color-blue;
+          color: #fff;
+          margin-right: 20px;
+        }
+        &.btn_false{
+          background: $color-grey3;
+        }
+      }
+    }
+    &.dialog_type_save,&.dialog_type_rename{
+      display: none;
+      @include dialog_size(400px,220px);
+      dl{
+        margin-bottom: 30px;
+        dt{
+          font-weight: bold;
+          margin-bottom: 10px;          
+        }
+        dd{
+          input{
+            width: 100%;
+            text-align: left;
+          }
+        }
+      }
+    }
+    &.dialog_type_setting{
+      display: none;
+      @include dialog_size(400px,220px);
+      dl{
+        margin-bottom: 30px;
+        dt{
+          font-weight: bold;
+          margin-bottom: 10px;          
+        }
+        dd{
+          input{
+            width: 100%;
+            text-align: left;
+          }
+        }
+      }
+    }
+    &.dialog_type_load{
+      display: none;
+      @include dialog_size(400px,200px);
+      dl{
+        margin-bottom: 30px;
+        dt{
+          font-weight: bold;
+          margin-bottom: 10px;          
+        }
+        dd{
+          position: relative;
+          &:before {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid $color-blue;
+            border-left: 2px solid  $color-blue;
+            transform: translateY(-50%) rotate(-135deg);
+            font-size: 20px;
+            pointer-events: none;
+          }
+          select{
+            width: 100%;
+            font-size: 1rem;
+            color: $font-color;
+            font-weight: normal;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 3px;
+            background: #fff;
+          }
+        }
+      }
+    }
+    &.dialog_type_delete{
+      display: none;
+      @include dialog_size(400px,220px);
+      dl{
+        margin-bottom: 30px;
+        dd{
+         
+        }
+      }
+      ul{
+        li{
+          &.btn_true{
+            background-color: $color-black;
+            color: #fff;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    &.dialog_type_mysong{
+      display: none;
+      @include dialog_size(600px,530px);
+      p{
+        margin-bottom: 30px;
+        strong{
+          font-weight: bold;
+          color: $color-blue;
+        }
+      }
+      dl{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dotted $color-table-border;
+        dt{
+          font-weight: bold;
+          margin-bottom: 10px;
+          width: 130px;
+          text-align: left;
+        }
+        dd{
+          flex: 1;
+          input{
+            width: 100%;
+            text-align: left;
+          }
+          &.dialog_radio{
+            display: flex;
+            justify-content: left;
+            label{
+              width: 60px;
+              margin-right: 20px;
+              display: flex;
+              justify-content: left;
+              align-items: center;
+              input{
+                width: auto;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+      ul{
+        li{
+          &.btn_true{
+            background-color: $color-red;
+            color: #fff;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 
 
 /* =========================================================
