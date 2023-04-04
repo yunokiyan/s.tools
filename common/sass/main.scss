@@ -399,7 +399,7 @@ main{
               }
             }
           }
-          .detail_action{
+          .detail_btn{
             display: flex;
             justify-content: right;
             width: 600px;
@@ -410,7 +410,7 @@ main{
               margin-left: 20px;
               border-radius: 30px;    
               // border: 1px solid $color-table-border;
-              &.action_fav{
+              &.fav{
                 // color: #fff;
                 background: #fff url(../img/icon_fav.png) no-repeat left 12px top 11px;
                 background-size: 20px;
@@ -419,7 +419,7 @@ main{
                 font-weight: bold;
                 @extend .shadow;
               }
-              &.action_setlist{
+              &.setlist{
                 // color: #fff;
                 background: #fff url(../img/icon_setlist.png) no-repeat left 12px top 11px;
                 background-size: 20px;
@@ -428,7 +428,7 @@ main{
                 font-weight: bold;
                 @extend .shadow;
               }
-              &.action_play{
+              &.play{
                 // color: #fff;
                 background: #fff url(../img/icon_play.png) no-repeat left 12px top 11px;
                 background-size: 20px;
@@ -532,69 +532,69 @@ main{
           }
         }
       }
+      .detail_btn{
+        flex: 1;
+        &.detail_btn{
+          display: flex;
+          justify-content:space-between;
+          width: 120px;
+          li{
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            @extend .shadow;
+            span{
+              padding: 5px;
+              border-radius: 5px;
+              text-align: center;
+              background: #fff;
+              border-radius: 10px;                
+              border: 1px solid $color-table-border;
+              position: absolute;
+              bottom: 0px;
+              left: 50%;
+              width: 120px;
+              text-align: center;
+              font-size: 0.8rem;
+              z-index: 1;
+              margin-left: -60px;
+              display: none;
+            }
+            // &.setlist{
+            //   background: $color-blue url(../img/icon_setlist.png) no-repeat left 7px top 7px;
+            //   background-size: 20px;
+            // }
+            // &.fav{
+            //   background: $color-yellow url(../img/icon_fav.png) no-repeat left 7px top 7px;
+            //   background-size: 20px;
+            // }
+            // &.play{
+            //   background: $color-red url(../img/icon_play.png) no-repeat left 7px top 7px;
+            //   background-size: 20px;
+            // }
+
+            &.setlist{
+              background: #fff url(../img/icon_setlist.png) no-repeat left 5px top 5px;
+              background-size: 20px;
+              border: 2px solid $color-blue;
+            }
+            &.fav{
+              background: #fff url(../img/icon_fav.png) no-repeat left 5px top 5px;
+              background-size: 20px;
+              border: 2px solid $color-yellow;
+            }
+            &.play{
+              background: #fff url(../img/icon_play.png) no-repeat left 5px top 5px;
+              background-size: 20px;
+              border: 2px solid $color-red;
+            }
+          }
+        }
+      }
       .detail_btn_list{
         display: flex;
         justify-content: center;
         align-items: center;
-        ul{
-          flex: 1;
-          &.detail_btn{
-            display: flex;
-            justify-content:space-between;
-            width: 120px;
-            li{
-              width: 34px;
-              height: 34px;
-              border-radius: 10px;
-              @extend .shadow;
-              span{
-                padding: 5px;
-                border-radius: 5px;
-                text-align: center;
-                background: #fff;
-                border-radius: 10px;                
-                border: 1px solid $color-table-border;
-                position: absolute;
-                bottom: 0px;
-                left: 50%;
-                width: 120px;
-                text-align: center;
-                font-size: 0.8rem;
-                z-index: 1;
-                margin-left: -60px;
-                display: none;
-              }
-              // &.setlist{
-              //   background: $color-blue url(../img/icon_setlist.png) no-repeat left 7px top 7px;
-              //   background-size: 20px;
-              // }
-              // &.fav{
-              //   background: $color-yellow url(../img/icon_fav.png) no-repeat left 7px top 7px;
-              //   background-size: 20px;
-              // }
-              // &.play{
-              //   background: $color-red url(../img/icon_play.png) no-repeat left 7px top 7px;
-              //   background-size: 20px;
-              // }
-
-              &.setlist{
-                background: #fff url(../img/icon_setlist.png) no-repeat left 5px top 5px;
-                background-size: 20px;
-                border: 2px solid $color-blue;
-              }
-              &.fav{
-                background: #fff url(../img/icon_fav.png) no-repeat left 5px top 5px;
-                background-size: 20px;
-                border: 2px solid $color-yellow;
-              }
-              &.play{
-                background: #fff url(../img/icon_play.png) no-repeat left 5px top 5px;
-                background-size: 20px;
-                border: 2px solid $color-red;
-              }
-            }
-          }
-        }
         div{
           display: flex;
           display: none;

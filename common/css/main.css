@@ -173,7 +173,7 @@ h2 {
   color: #02A9E1;
 }
 
-.shadow, main .search_btn, main .detail.type_search .detail_panel, main .detail.type_search .detail_panel div .detail_action li.action_fav, main .detail.type_search .detail_panel div .detail_action li.action_setlist, main .detail.type_search .detail_panel div .detail_action li.action_play, main table th .detail_btn_list ul.detail_btn li, main table td .detail_btn_list ul.detail_btn li, main .bulk ul li, main .ranking_artist ul li, aside .panel_setlist dl, aside .panel_action li {
+.shadow, main .search_btn, main .detail.type_search .detail_panel, main .detail.type_search .detail_panel div .detail_btn li.fav, main .detail.type_search .detail_panel div .detail_btn li.setlist, main .detail.type_search .detail_panel div .detail_btn li.play, main table th .detail_btn.detail_btn li, main table td .detail_btn.detail_btn li, main .bulk ul li, main .ranking_artist ul li, aside .panel_setlist dl, aside .panel_action li {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -369,13 +369,13 @@ main .detail.type_search .detail_panel div .detail_tag li:last-child {
   margin-right: 0;
 }
 
-main .detail.type_search .detail_panel div .detail_action {
+main .detail.type_search .detail_panel div .detail_btn {
   display: flex;
   justify-content: right;
   width: 600px;
 }
 
-main .detail.type_search .detail_panel div .detail_action li {
+main .detail.type_search .detail_panel div .detail_btn li {
   cursor: pointer;
   padding: 10px 15px 10px 40px;
   font-size: 1rem;
@@ -383,7 +383,7 @@ main .detail.type_search .detail_panel div .detail_action li {
   border-radius: 30px;
 }
 
-main .detail.type_search .detail_panel div .detail_action li.action_fav {
+main .detail.type_search .detail_panel div .detail_btn li.fav {
   background: #fff url(../img/icon_fav.png) no-repeat left 12px top 11px;
   background-size: 20px;
   border: 2px solid #FCB226;
@@ -391,7 +391,7 @@ main .detail.type_search .detail_panel div .detail_action li.action_fav {
   font-weight: bold;
 }
 
-main .detail.type_search .detail_panel div .detail_action li.action_setlist {
+main .detail.type_search .detail_panel div .detail_btn li.setlist {
   background: #fff url(../img/icon_setlist.png) no-repeat left 12px top 11px;
   background-size: 20px;
   border: 2px solid #02A9E1;
@@ -399,7 +399,7 @@ main .detail.type_search .detail_panel div .detail_action li.action_setlist {
   font-weight: bold;
 }
 
-main .detail.type_search .detail_panel div .detail_action li.action_play {
+main .detail.type_search .detail_panel div .detail_btn li.play {
   background: #fff url(../img/icon_play.png) no-repeat left 12px top 11px;
   background-size: 20px;
   padding-left: 40px;
@@ -499,29 +499,23 @@ main table th .detail_tag li:last-child, main table td .detail_tag li:last-child
   margin-right: 0;
 }
 
-main table th .detail_btn_list, main table td .detail_btn_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-main table th .detail_btn_list ul, main table td .detail_btn_list ul {
+main table th .detail_btn, main table td .detail_btn {
   flex: 1;
 }
 
-main table th .detail_btn_list ul.detail_btn, main table td .detail_btn_list ul.detail_btn {
+main table th .detail_btn.detail_btn, main table td .detail_btn.detail_btn {
   display: flex;
   justify-content: space-between;
   width: 120px;
 }
 
-main table th .detail_btn_list ul.detail_btn li, main table td .detail_btn_list ul.detail_btn li {
+main table th .detail_btn.detail_btn li, main table td .detail_btn.detail_btn li {
   width: 34px;
   height: 34px;
   border-radius: 10px;
 }
 
-main table th .detail_btn_list ul.detail_btn li span, main table td .detail_btn_list ul.detail_btn li span {
+main table th .detail_btn.detail_btn li span, main table td .detail_btn.detail_btn li span {
   padding: 5px;
   border-radius: 5px;
   text-align: center;
@@ -539,22 +533,28 @@ main table th .detail_btn_list ul.detail_btn li span, main table td .detail_btn_
   display: none;
 }
 
-main table th .detail_btn_list ul.detail_btn li.setlist, main table td .detail_btn_list ul.detail_btn li.setlist {
+main table th .detail_btn.detail_btn li.setlist, main table td .detail_btn.detail_btn li.setlist {
   background: #fff url(../img/icon_setlist.png) no-repeat left 5px top 5px;
   background-size: 20px;
   border: 2px solid #02A9E1;
 }
 
-main table th .detail_btn_list ul.detail_btn li.fav, main table td .detail_btn_list ul.detail_btn li.fav {
+main table th .detail_btn.detail_btn li.fav, main table td .detail_btn.detail_btn li.fav {
   background: #fff url(../img/icon_fav.png) no-repeat left 5px top 5px;
   background-size: 20px;
   border: 2px solid #FCB226;
 }
 
-main table th .detail_btn_list ul.detail_btn li.play, main table td .detail_btn_list ul.detail_btn li.play {
+main table th .detail_btn.detail_btn li.play, main table td .detail_btn.detail_btn li.play {
   background: #fff url(../img/icon_play.png) no-repeat left 5px top 5px;
   background-size: 20px;
   border: 2px solid #de332e;
+}
+
+main table th .detail_btn_list, main table td .detail_btn_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main table th .detail_btn_list div, main table td .detail_btn_list div {
